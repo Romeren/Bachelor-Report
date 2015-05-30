@@ -1,0 +1,253 @@
+<!--========================================================================
+============================================================================
+                            LOGIN SIGN UP MODALS
+============================================================================
+-->
+<!-- Login snippet -->
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Log-in</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="loginPassword">Email address</label>
+                    <input class="form-control" id="loginEmail" placeholder="Enter email" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input class="form-control" id="loginPassword" placeholder="Password" type="password">
+                </div>
+                <p class="text-right"><a href="#">Forgot password?</a></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn">Close</a>
+                <a href="#" data-dismiss="modal" id="signin_btn" class="btn btn-primary">Log-in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- signup snippet -->
+<div class="modal fade" id="signupModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="SignUpInputEmail">Email address</label>
+                    <input class="form-control" id="SignUpInputEmail" placeholder="Enter email" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="SignUpInputFirstname">First name</label>
+                    <input class="form-control" id="SignUpInputFirstname" placeholder="Enter first name" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="SignUpInputLastname">Last name</label>
+                    <input class="form-control" id="SignUpInputLastname" placeholder="Enter last name" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="SignUpPassword">Password</label>
+                    <input class="form-control" id="SignUpPassword" placeholder="Password" type="password">
+                </div>
+                <div class="form-group">
+                    <label for="RePassword">Reenter Password</label>
+                    <input class="form-control" id="RePassword" placeholder="Reenter Password" type="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn">Close</a>
+                <a href="#" data-dismiss="modal" id="signup_btn" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal for validating data -->
+<form id="validationModal" class="modal multi-step" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title step-1" data-step="1" style="display: none;">Step 1</h4>
+                <h4 class="modal-title step-2" data-step="2" style="display: none;">Step 2</h4>
+                <h4 class="modal-title step-3" data-step="3" style="display: block;">Final Step</h4>
+                <div class="m-progress">
+                    <div class="m-progress-bar-wrapper">
+                        <div class="m-progress-bar" style="width: 100%;"> </div>
+                    </div>
+                    <div class="m-progress-stats">
+                        <span class="m-progress-current">3</span>/
+                        <span class="m-progress-total">3</span>
+                    </div>
+                    <div class="m-progress-complete" style="display: none;"> Completed </div>
+                </div>
+            </div>
+            <div class="modal-body step-1" data-step="1" style="display: none;">
+                 <div class="form-group">
+                    <label for="valInputBuildingName">Building name</label>
+                    <input class="form-control" id="valInputBuildingName" placeholder="Enter building name" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="valInputStreet">Street</label>
+                    <input class="form-control" id="valInputStreet" placeholder="Enter street" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="valInputZipcode">Zip-code</label>
+                    <input class="form-control" id="valInputZipcode" placeholder="Enter zip-code" type="number">
+                </div>
+            </div>
+            <div class="modal-body step-2" data-step="2" style="display: none;"> 
+                <div class="form-group">
+                    <label for="valInputbuilt">Built area</label>
+                    <input class="form-control" id="valInputBuilt" placeholder="Enter built area" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="valInputCellar">Cellar area</label>
+                    <input class="form-control" id="valInputCellar" placeholder="Enter cellar area" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="valInputAttic">Attic area</label>
+                    <input class="form-control" id="valInputAttic" placeholder="Enter attic area" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="valInputArea">Building area</label>
+                    <input class="form-control" id="valInputArea" placeholder="Enter building area" type="number">
+                </div>
+            </div>
+            <div class="modal-body step-3" data-step="3" style="display: block;"> This is the final step. 
+                <div class="form-group">
+                    <label for="valInputHeated">Heated area</label>
+                    <input class="form-control" id="valInputHeated" placeholder="Enter heated area" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="valInputTotalArea">Total area</label>
+                    <input class="form-control" id="valInputTotalArea" placeholder="Enter total area" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="valInputResidence">Residence</label>
+                    <input class="form-control" id="valInputResidence" placeholder="Enter residence area" type="number">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button" onclick="sendEvent('#validationModal', 4)">Close</button>
+                <button class="btn btn-primary step step-1" onclick="sendEvent('#validationModal', 2)" data-step="1" type="button" style="display: none;">Continue</button>
+                <button class="btn btn-primary step step-2" onclick="sendEvent('#validationModal', 1)" data-step="2" type="button" style="display: none;">Back</button>
+                <button class="btn btn-primary step step-2" onclick="sendEvent('#validationModal', 3)" data-step="2" type="button" style="display: none;">Continue</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" src="javascript/multi-step-modal-master/multi-step-modal.js"></script>
+
+
+<script type="text/javascript">
+    $('#signin_btn').click(function () {
+        window.app.signIn($('#loginEmail').val(), $('#loginPassword').val())
+    });
+
+    $('#signup_btn').click(function () {
+        window.app.signUp(
+                $('#SignUpInputEmail').val(),
+                $('#SignUpInputFirstname').val(),
+                $('#SignUpInputLastname').val(),
+                $('#SignUpPassword').val()
+        );
+    });
+
+    sendEvent = function(sel, step) {
+    if(step == -1 ){ //on init:
+        window.df.user.getProfile( null ,function(response){window.mail =  response.email;});
+
+        //fill out template with existing data:
+        $('#valInputBuildingName').val( $('.brrPanelLocation').find('.bbrName').text());
+        $('#valInputStreet').val($('.brrPanelLocation').find('.bbrAddress')[0].children[0].innerHTML);
+
+        $('#valInputZipcode').val($('.brrPanelLocation').find('.bbrAddress')[0].children[1].innerHTML.trim().split(' ')[0]);
+        $('#valInputbuilt').val($('.brrPanelLocation').find('.bbrBuilt').text());
+        $('#valInputCellar').val($('.brrPanelLocation').find('.bbrCellar').text());
+        $('#valInputAttic').val($('.brrPanelLocation').find('.bbrAttic').text());
+        $('#valInputArea').val($('.brrPanelLocation').find('.bbrAreal').text());
+        $('#valInputHeated').val($('.brrPanelLocation').find('.bbrHeated').text());
+        $('#valInputTotalArea').val($('.brrPanelLocation').find('.bbrTotal').text());
+        $('#valInputResidence').val($('.brrPanelLocation').find('.bbrResidence').text());        
+    }
+    if(step > 3){
+        //update building:
+
+        //get new values:
+        var buildingid = 9999;
+        
+        var buildname = $('#valInputBuildingName').val();
+        var street = $('#valInputStreet').val();
+        var zipcode = $('#valInputZipcode').val();
+        var heated = $('#valInputHeated').val();
+        var builtArea = $('#valInputBuilt').val();
+        var cellar = $('#valInputCellar').val();
+        var attic = $('#valInputAttic').val();
+        var buildArea = $('#valInputArea').val();
+        var total = $('#valInputTotalArea').val();
+        var residence = $('#valInputResidence').val();
+        var now = Date.now();
+
+        //update active building:
+        window.activebuilding.building_name = buildname;
+        window.activebuilding.street = street;
+        window.activebuilding.zip_code = zipcode;
+        window.activebuilding.built_area = builtArea;
+        window.activebuilding.cellar_area = cellar;
+        window.activebuilding.attic = attic;
+        window.activebuilding.building_area = buildArea;
+        window.activebuilding.heated_area = heated;
+        window.activebuilding.total_area = total;
+        window.activebuilding.total_residence = residence;
+        window.activebuilding.validatedAt = now;
+
+        //update gui:
+        $('.bbrName').text(buildname);        
+        $('.bbrAddress').children()[0].innerHTML = street;
+        $('.bbrAddress').children()[1].innerHTML = zipcode;
+        $('.bbrBuilt').text(builtArea);
+        $('.bbrCellar').text(cellar);
+        $('.bbrAttic').text(attic);
+        $('.bbrAreal').text(buildArea);
+        $('.bbrHeated').text(heated);
+        $('.bbrTotal').text(total);
+        $('.bbrResidence').text(residence);
+        $('.bbrValidation').text([now.getDate(), now.getMonth(), now.getFullYear()].join('-'));
+
+        //update database: 
+        window.df.postgres.updateRecord({
+                    'table_name': 'bbr',
+                    'id' :  buildingid,
+                    'body': {'street': street,
+                           'zip_code': zipcode,
+                           'built_area': builtArea,
+                           'cellar_area': cellar,
+                           'attic': attic,
+                           'building_area': buildArea,
+                           'heated_area': heated,
+                           'total_area': total,
+                           'total_residence': residence,
+                           'validatedat': now,
+                           'validated_by': window.mail
+                            }
+                        }, 
+            function(response){
+                console.log(response);
+        });
+        resetValidationModal();
+    }
+
+
+    $(sel).trigger('next.m.' + step);
+}
+
+
+</script>

@@ -1,0 +1,48 @@
+path.red {
+	stroke: #f68484;
+
+}
+
+path.blue {
+	stroke: #75b9e6;
+}
+
+path.green{
+	stroke: #71d398;
+}
+
+path.teal {
+	stroke:  #97d3c5;
+}
+
+path.orange {
+	stroke: #f4b162;
+}
+
+path.gray-spr {
+	stroke: #f3f5f6;
+}
+
+path.purple {
+	stroke: #af91e1;
+}
+
+path.pink {
+	stroke: #f78db8;
+}
+
+path.lime {
+	stroke: #a8db43;
+}
+
+path.magenta {
+	stroke: #e65097;
+}
+
+path.brown {
+	stroke: #d1b993;
+}
+
+path.dark {
+	stroke: #79859b;
+}

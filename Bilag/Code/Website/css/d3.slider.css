@@ -1,0 +1,70 @@
+
+.d3-slider {
+    border: 1px solid #aaaaaa;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+    position: relative;
+    z-index: 2;
+}
+.d3-slider-horizontal {
+    height: 0.8em;
+}
+.d3-slider-vertical {
+    height: 100px;
+    width: 0.8em;
+}
+.d3-slider-handle {
+    background: linear-gradient(to bottom, #eee 0%, #ddd 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    height: 1.2em;
+    position: absolute;
+    width: 1.2em;
+    z-index: 3;
+}
+.d3-slider-handle:hover {
+    border: 1px solid #999999;
+}
+.d3-slider-horizontal .d3-slider-handle {
+    margin-left: -0.6em;
+    top: -0.3em;
+}
+.d3-slider-axis {
+    position: relative;
+    z-index: 1;
+}
+.d3-slider-axis-bottom {
+    top: 0.8em;
+}
+.d3-slider-axis-right {
+    left: 0.8em;
+}
+.d3-slider-axis path {
+    fill: none;
+    stroke-width: 0;
+}
+.d3-slider-axis line {
+    fill: none;
+    shape-rendering: crispedges;
+    stroke: #aaa;
+}
+.d3-slider-axis text {
+    font-size: 11px;
+}
+.d3-slider-vertical .d3-slider-handle {
+    left: -0.25em;
+    margin-bottom: -0.6em;
+    margin-left: 0;
+}
+
+div.svgwrapper {
+    margin-left: -10px;
+    margin-right: 2px;
+}
+div.svgwrapper svg{
+    margin-left: -10px;
+    margin-right: 2px;
+}
+div.slider {
+    margin-left: 0px;
+}

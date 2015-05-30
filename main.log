@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  26 JAN 2015 12:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  28 MAY 2015 19:11
 entering extended mode
 **main.tex
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\main.tex"
+(C:\Users\EmilSebastian\git\bachelor-repport\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,9 +13,9 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
+(D:\Latex1\tex\latex\base\report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+(D:\Latex1\tex\latex\base\size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,20 +30,18 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+) (D:\Latex1\tex\latex\base\inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+(D:\Latex1\tex\latex\base\utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+ (D:\Latex1\tex\latex\base\t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -193,7 +191,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+(D:\Latex1\tex\latex\base\ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -223,8 +221,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 )
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+ (D:\Latex1\tex\latex\base\omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -248,31 +245,31 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(D:\Latex1\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(D:\Latex1\tex\latex\graphics\keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(D:\Latex1\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(D:\Latex1\tex\latex\graphics\trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+(D:\Latex1\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(D:\Latex1\tex\latex\pdftex-def\pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(D:\Latex1\tex\generic\oberdiek\infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(D:\Latex1\tex\generic\oberdiek\ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -284,21 +281,21 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 LaTeX Warning: Unused global option(s):
     [35pt].
 
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\main.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+(C:\Users\EmilSebastian\git\bachelor-repport\main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(D:\Latex1\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count89
 \scratchdimen=\dimen105
@@ -315,61 +312,92 @@ LaTeX Font Info:    ... okay on input line 16.
 File: images/frontpage.png Graphic file (type png)
 
 <use images/frontpage.png>
-Package pdftex.def Info: images/frontpage.png used on input line 17.
+Package pdftex.def Info: images/frontpage.png used on input line 16.
 (pdftex.def)             Requested size: 329.22919pt x 316.18047pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 16.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Almir/Dropbox/Ba
-'er/2. Raport/images/frontpage.png>] [1
+{C:/Users/EmilSebastian/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/
+Users/EmilSebastian/git/bachelor-repport/images/frontpage.png>] [1
 
 ] [2
 
-]
-[3
+] [3
 
 ] [4
 
-] ("C:\Users\Almir\Dropbox\Ba'er\2. Raport\main.toc")
+]
+(C:\Users\EmilSebastian\git\bachelor-repport\main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
 \tf@toc=\write3
  [5
 
 ]
 Chapter 1.
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\chapters/chapter1.tex") [6
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Introduction.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[][]\OT1/cmr/m/n/8 http://www.kebmin.dk/klima-energi-bygningspolitik/dansk-klim
+a-energi-
+ []
+
+[6
+
+]) [7]
+Chapter 2.
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Background.tex [8
+
+]
+[9] [10]) [11]
+Chapter 3.
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Requirements.tex [12
+
+]
+[13] [14]
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 29.
+
+) [15]
+Chapter 4.
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex) [16
 
 ]
 Appendix A.
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\chapters/appendix01.tex") [7
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/appendix01.tex) [17
 
 ]
 Appendix B.
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\chapters/appendix01.tex") [8
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/appendix01.tex) [18
 
 ]
-("C:\Users\Almir\Dropbox\Ba'er\2. Raport\main.aux") ) 
+(C:\Users\EmilSebastian\git\bachelor-repport\main.aux) ) 
 Here is how much of TeX's memory you used:
- 1374 strings out of 493921
- 17476 string characters out of 3147282
- 67034 words of memory out of 3000000
- 4679 multiletter control sequences out of 15000+200000
- 8195 words of font info for 29 fonts, out of 3000000 for 9000
+ 1387 strings out of 493921
+ 17422 string characters out of 3154476
+ 72034 words of memory out of 3000000
+ 4683 multiletter control sequences out of 15000+200000
+ 8800 words of font info for 31 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,19p,242b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr17.pfb>
-Output written on main.pdf (9 pages, 201286 bytes).
+ 27i,8n,19p,1641b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Latex1/fonts/type1/
+public/amsfonts/cm/cmbx10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Latex1/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr17.pfb><D:/Latex1/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+D:/Latex1/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Latex1/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (19 pages, 293700 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,303 @@
+<div id="sidebar">
+<div class="panel panel-dark sidebar-fixed" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h5><i class="icon-tree"></i>Choice of comparison</h5>
+    </div>
+    <div class="panel-body">
+    	<div class="row">
+    		<div id="buildingtypesNav" class="panel panel-default" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    			<div class="panel-heading">
+    				<h5><i class="icon-office"></i>Types</h5>
+    			</div>
+    			<div class="panel-body minimized">
+                    <div id="typelist">
+                            <input type="text" placeholder="search" class="fuzzy-search type-search">
+                            <div class="list accordion">
+                                                        
+                            </div>
+                            <ul class="pagination typepagination"></ul>
+                    </div>         
+                </div>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div id="buildingcategoriesNav" class="panel panel-default" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    			<div class="panel-heading">
+    				<h5><i class="icon-home2"></i>Categories</h5>
+    			</div>
+    			<div class="panel-body minimized">
+                    <div id="categorieslist">
+                            <input type="text"  placeholder="search" class="fuzzy-search categories-search">
+                            <div class="list accordion">
+                                                        
+                            </div>
+                             <ul class="pagination categoriespagination"></ul>
+                    </div>                  
+                </div>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div id="buildingallNav" class="panel panel-default" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    			<div class="panel-heading">
+    				<h5><i class="icon-home"></i>Buildings</h5>
+    			</div>
+    			<div class="panel-body minimized">
+                        <div id="sidebarbuildinglist">
+                            <input type="text"  placeholder="search" class="fuzzy-search building-search">
+                            <div class="list accordion">
+                                                        
+                            </div>
+                              <ul class="pagination buildingpagination"></ul>
+                        </div>                  
+                </div>
+    		</div>
+    	</div>
+        <div class="row">
+            <div id="simmilarbuildingNav" class="panel panel-default" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+                <div class="panel-heading">
+                    <h5><i class="icon-home"></i>Similar buildings</h5>
+                </div>
+                <div class="panel-body minimized">
+                        <div id="sidebarsimmilarlist">
+                            <input type="text"  placeholder="search" class="fuzzy-search simmilar-search">
+                            <div class="list accordion">
+                                                        
+                            </div>
+                              <ul class="pagination simmilargpagination"></ul>
+                        </div>                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+
+var typeFuzzyOption = {
+  searchClass: "type-search",
+  location: 0,
+  distance: 100,
+  threshold: 0.4,
+  multiSearch: true
+};
+var buildingFuzzyOption = {
+  searchClass: "building-search",
+  location: 0,
+  distance: 100,
+  threshold: 0.4,
+  multiSearch: true
+};
+var categoriesFuzzyOption = {
+  searchClass: "categories-search",
+  location: 0,
+  distance: 100,
+  threshold: 0.4,
+  multiSearch: true
+};
+
+var simmilarFuzzyOption = {
+  searchClass: "simmilar-search",
+  location: 0,
+  distance: 100,
+  threshold: 0.4,
+  multiSearch: true
+};
+
+var type_pagination_option = {
+       paginationClass: "typepagination",
+};
+var categories_pagination_option = {
+       paginationClass: "categoriespagination",
+};
+var build_pagination_option = {
+       paginationClass: "buildingpagination",
+};
+var simmilar_pagination_option = {
+       paginationClass: "simmilargpagination",
+};
+var type_list;
+var buildingSidebar_list;
+var categories_list;
+var simmilarBuildings_list;
+
+    var initiateLists = function(){
+        var options = type_card_options;
+        options.plugins[0] = ListPagination(type_pagination_option);
+        options.plugins[1] = ListFuzzySearch(typeFuzzyOption);
+        
+        type_list = new List('typelist', options);
+
+        var options = type_card_options;
+        options.plugins[0] = ListPagination(build_pagination_option);
+        options.plugins[1] = ListFuzzySearch(buildingFuzzyOption);
+        
+        buildingSidebar_list = new List('sidebarbuildinglist', options);  
+
+        var options = type_card_options;
+        options.plugins[0] = ListPagination(categories_pagination_option);
+        options.plugins[1] = ListFuzzySearch(categoriesFuzzyOption);
+        
+        categories_list = new List('categorieslist', options);   
+
+
+        var options = type_card_options;
+        options.plugins[0] = ListPagination(simmilar_pagination_option);
+        options.plugins[1] = ListFuzzySearch(simmilarFuzzyOption);
+        
+        simmilarBuildings_list = new List('sidebarsimmilarlist', options);   
+    } 
+
+
+    var loadSidebarTypes = function(){
+
+        window.df.apis.postgres.getRecords({'table_name':'w_subtype_profiles',  
+                                    'fields': 'subtype, consumption_type, mean, sd'
+                                    }, 
+            function(response) {
+
+                 for (var i = response.record.length - 1; i >= 0; i--) {
+                    
+                    var typeitem = type_list.get('item_id', response.record[i].subtype);
+                    if(typeitem[0] == undefined){
+                        typeitem = new TypeItem(response.record[i].subtype, undefined, response.record[i].subtype, 0);
+                        typeitem.type_data = [];
+                        type_list.add(typeitem);
+                        typeitem.initTypeItem(type_list);
+                    }else{
+                        typeitem = typeitem[0]._values;
+                    }
+                    typeitem.type_data.push({'consumption_type': response.record[i].consumption_type, 
+                                            'mean': response.record[i].mean, 
+                                            'sd': response.record[i].sd});
+                 };
+            });
+    }
+
+    var loadSidebarBuildings = function(){
+
+        window.df.apis.postgres.getRecords({'table_name':'buildings',  
+                                    'fields':'building_name, building_id'
+                                    }, 
+            function(response) {
+                 for (var i = response.record.length - 1; i >= 0; i--) {
+                    var typeitem = new TypeItem(response.record[i].building_name, undefined , response.record[i].building_id, 2);
+                    buildingSidebar_list.add(typeitem);
+                    typeitem.initTypeItem(buildingSidebar_list);
+                 };
+            });
+    }
+
+var activeBuildingsInSideBar = [];
+    var loadSidebarSimmilarBuildings = function(){
+
+     window.df.apis.postgres.getRecords({'table_name':'w_simmilar', 
+                                            'filter': 'building in(' + String(activeBuildingsInSideBar) + ') AND consumption_type =' + window.activeConsumption,
+                                             'fields': 'simmilar'}, 
+        function(tableRows){
+            var loadedBuildings = [];
+            activeBuildingsInSideBar.forEach(function(abisb){
+                loadedBuildings.push(abisb);
+            });
+
+            for (var i = tableRows.record.length - 1; i >= 0; i--) {
+                var parsedData = parseArrayRecord(tableRows.record[i].simmilar);
+
+                var buildingsToLoad = [];
+                parsedData.forEach(function(buildingNr){
+                    if(loadedBuildings.indexOf(buildingNr) == -1){
+                        buildingsToLoad.push(buildingNr);
+                        loadedBuildings.push(buildingNr);
+                    }
+                });
+
+                if(buildingsToLoad[0] == undefined)
+                    return;
+
+                window.df.apis.postgres.getRecords({'table_name':'buildings', 
+                                                    'filter': 'building_id IN(' + String(buildingsToLoad) +')',
+                                                    'fields': 'building_name, building_id'},
+                    function(response){
+                        for (var i = response.record.length - 1; i >= 0; i--) {
+                        var typeitem = new TypeItem(response.record[i].building_name, -1 , response.record[i].building_id, 2);
+                        simmilarBuildings_list.add(typeitem);
+                        typeitem.initTypeItem(simmilarBuildings_list);
+                        };
+                    });
+
+                };
+        });
+    }
+
+//listen on click on elements in the sidebar...
+document.addEventListener("buildingtype_clicked", function (e) {
+    var elementType = 0;
+
+    //get element:
+    sender = e.detail // get element from our lists:
+    if(sender[0] == undefined) return;
+    if(sender[0]._values.item_type != 2) return;
+    if(sender[0]._values.super_type == -1) return; 
+    
+    sender = sender[0];
+    if(sender._values.clicked){
+        activeBuildingsInSideBar.push(sender._values.item_id);
+        simmilarBuildings_list.clear();
+        loadSidebarSimmilarBuildings();
+    }else{
+        activeBuildingsInSideBar.splice(activeBuildingsInSideBar.indexOf(sender._values.item_id, 1));
+        simmilarBuildings_list.clear();
+        loadSidebarSimmilarBuildings();
+    }
+
+
+}, false
+);
+document.addEventListener("consumptiontypeChanged", function (e) {
+    simmilarBuildings_list.clear();
+    loadSidebarSimmilarBuildings();
+});
+
+    $(document).ready(function(){
+        initiateLists();
+        loadSidebarTypes();
+        loadSidebarBuildings();
+
+        $('#buildingtypesNav').find('.panel-heading h5').on('click', function(e){
+            var body = $(e.target).parent().parent().find('.panel-body , .panel-footer');
+            if(body.hasClass('minimized')){
+                body.removeClass('minimized');
+            }else{
+                body.addClass('minimized');
+            }
+        });
+
+        $('#buildingcategoriesNav .panel-heading h5').click(function(e){
+
+            var body = $(e.target).parent().parent().find(' .panel-body , .panel-footer');
+            if(body.hasClass('minimized')){
+                body.removeClass('minimized');
+            }else{
+                body.addClass('minimized');
+            }
+        });
+
+        $('#buildingallNav .panel-heading h5').click(function(e){
+            var body = $(e.target).parent().parent().find(' .panel-body , .panel-footer');
+            if(body.hasClass('minimized')){
+                body.removeClass('minimized');
+            }else{
+                body.addClass('minimized');
+            }
+        });
+
+        $('#simmilarbuildingNav .panel-heading h5').click(function(e){
+            var body = $(e.target).parent().parent().find(' .panel-body , .panel-footer');
+            if(body.hasClass('minimized')){
+                body.removeClass('minimized');
+            }else{
+                body.addClass('minimized');
+            }
+        });
+    });
+</script>
