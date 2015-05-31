@@ -51,7 +51,7 @@ The clustering was tried with the DBSCAN algorithm\footnote{See Related work and
 Based on the day type profiles generated on the training data, the test data was checked for anomalies. The fault detection settings used was an alpha value of 0.05 and the features used for the fault detection were mean hourly consumption and nightly consumption. During the process buildings that did not have any consumption profiles, (due to missing) or days with missing data were discarded. The result was that 391 buildings were processed and in total 2435 days were checked for anomalies. In total 76 anomalies were detected of which 36 had to with a higher than usual consumption. Figure 6.4 shows the detected anomalies across buildings.
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{anomaliesvsbuildings1.png}
+\includegraphics[scale=0.3]{anomaliesvsbuildings1.png}
 \end{center}
 \caption{Anormalies vs. Buildings}
 \end{figure}
@@ -67,7 +67,7 @@ The 78 anomalies are spread across 20 buildings. Building 6028 has the largest n
 Another way that the fault detection system was tested was to simulate a higher consumption and then see how many days would be detected as having this higher consumption. This test was run with a simulated increase in consumption from 0 - 100\%, and with $\alpha$ values 0.05 and 0.025. The results can be seen in figure 6.6.
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.5]{anomalyvsincrease.png}
+\includegraphics[scale=0.3]{anomalyvsincrease.png}
 \end{center}
 \caption{Simulated test of the fault detection}
 \end{figure}

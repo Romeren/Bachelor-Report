@@ -19,7 +19,9 @@ Cluster analysis is widely used within data mining and machine learning, to find
 
 There are many different techniques for clustering, and even more algorithms implementing them. Some popular ones are the the centroid-based K-means algorithm and the density- based DBSCAN. The K-means algorithm fixes the number of clusters to k (a parameter given to the algorithm). The algorithm will assign each data point in the dataset to the nearest cluster center, and then seek to find the optimal positions for the k cluster centers, such that the squared distances from each object to the cluster centers is minimal. K-medoids clustering is very similar to k-means, except that while the cluster is represented by a centroid in k-means, it is represented by the data point closest to the center of the cluster in k-medoids. A drawback of this approach is that K-means and K-medoids clustering does not work well with non convex clusters, which might be present if data point features do not follow normal distributions. This problem is avoided in DBSCAN which creates clusters by connecting points which have a specified minimum number of other points within a specified radius. Based on this density criterion clusters will of following arbitrary shapes can be formed. Figure 4,2 illustrates how cluster analysis with K-means and DBSCAN can result in very different clusters for the same dataset.
 \begin{figure}
-\includegraphics[scale=0.75]{cluster.png}
+\begin{center}
+\includegraphics[scale=0.5]{cluster.png}
+\end{center}
 \caption{\emph{Note these pictures have been taken from Wiki -Cluster analysis}}
 \end{figure}
 DBSCAN additionally has the ability to detect outliers, which would be the data points residing in low density areas not reachable with the density criterion. \cite{faultdetec3} compares the use of DBSCAN alone with using K-means followed by the Generalized Extreme Studentized Deviate (GESD) outlier detection method, to find  outliers and detect faults in building energy consumption. The results however seem somewhat inconclusive. 

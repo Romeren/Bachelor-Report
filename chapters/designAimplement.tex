@@ -1,7 +1,7 @@
 \section{Development approach}
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.5]{process.png}
+\includegraphics[scale=0.4]{process.png}
 \end{center}
 \caption{Rogers development process}
 \end{figure}
@@ -52,7 +52,7 @@ This section will describe the design of the central database in two parts. The 
 \section*{Raw data}
 Figure 5,4 shows an UML diagram of the part of the database, where raw consumption and building data is stored. The main criteria for this design was to be able to store all the data retrieved from Energy Key efficiently without losing any information. The database structure was modeled in a way which is generic enough to capture all kinds of observations without needing a table for each observation. This ensures that whatever data comes from Energy Key could be stored, and the design greatly reduces the number of tables needed. It makes sure that the database complies with the first three normal forms of databases, and the structure makes it possible to treat all measurements the same way when processing data.
 \begin{figure}
-\includegraphics[scale=0.3]{Buildingsdbnew.jpg}
+\includegraphics[scale=0.28]{Buildingsdbnew.jpg}
 \caption{Database diagram}
 \end{figure}
 \section*{Buildings and BBR data}
@@ -65,22 +65,14 @@ The table Observations, contains all the measured values from all meters. Each r
 Figure 5.5 is a diagram showing the part of the database which stores data that is the result of analyzing and processing the original raw data. The main goal of this design was to make the data as quick to access as possible in the way that it was going to be queried. As an example, all time series data in these tables are stored as arrays with no indication of time nor date, besides a single date in the settings table indicating the start time for all time series. This is because arrays are the most compact representation most compact representation of time series data when transferred in the JSON format used by the website. To further optimize data transfer speeds, all numbers are rounded to a single decimal only.
 All tables and views which names are denoted with \emph{W\_*} are used by the website to retrieve information. The \emph{W\_Setings} table, holds configurable settings for both the website and other parts of the system.
 \begin{figure}
-\includegraphics[scale=0.3]{WebSitesidedb.png}
+\includegraphics[scale=0.26]{WebSitesidedb.png}
 \caption{Database diagram, -Website}
 \end{figure}
 \section{Processing data}
 Processing and analyzing the raw meter data is done by a number of R scripts. The raw consumption data will be loaded from the database into an R session which will do various statistical calculations in order to get useful information from the raw meter data. The R session is launched once a day after new data has arrived, and runs until it has finished processing it. However, some operations are only performed on a weekly basis. The system is designed such that it remains usable while this batch job is running.
-\section*{Loading data}
-Once the main R script has been launched it will start by loading observations and related data from the tables containing raw data from Energy Key. Only observations which have come in since last time the process ran will be loaded. For each building in the system, the below operations are performed to get consistent time series for each supported consumption type:
-\begin{itemize}
-\item Only observations of types water ($m^3$), electricity ($kwH$), and heat energy ($GJ$) are loaded as those are the only ones currently supported by the website.
-\item Only observations originating from \emph{billing} meters are loaded because the readings from a \emph{distribution} meter can not be added to the total consumption.
-\item Observations which do not represent a one hour timeslot of consumption are removed because they do not originate from the automatic meters and are as explained earlier too inconsistent to deal with.
-\item Observations across different \emph{billing} meters which are of the same type and measure the same time slot are summed together in order to get a time serie representing the total consumption within each consumption type.
-\item A number of projections are done in order to get all the new raw observations and previously processed observations from the \emph{W\_consumptions} table merged into a single vector of values representing the consumption each hour since a specified epoch date which is loaded from the \emph{W\_settings}.
-\item A linear interpolation is performed in order to sort out missing values. The max gap for the linear interpolation is 5. This means if there is no data for more than 5 consecutive hours in a row the values will just be left as missing values.
-\end{itemize}
-Now once the loading of data has finished the system holds for each building and consumption type vectors of equal length, representing the hourly consumption since a specified epoch date until now. At each index \emph{i} will be the amount consumed between i hours after \emph{epoch} until \emph{i + 1} hours after epoch. This vector is stored as an array, along with the building id and consumption type into the \emph{W\_consumptions} table where it can be accessed by the website.
+
+The Appendix 07 -Loading data descripes how data is loaded into R and the initial data manipulation.
+
 \section*{Extracting features}
 Once the raw consumption is loaded as vectors, the system will convert them to a matrices with 24 columns, one for each hour of the day beginning with 00:00 at the first index and ending with 23:00 at the last as illustrated by figure 5.6. 
 \begin{figure}
