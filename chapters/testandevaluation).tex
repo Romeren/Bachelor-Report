@@ -28,7 +28,7 @@ This table seems to indicate that the various preprocessing methods do lower the
 Figure 6.2 illustrates the importance of removing outliers when creating the daytype profiles. a) shows building 2387’s electricity consumption for a cluster of similar days (black lines) with an outlier present, while in b) the outlier was removed. The mean consumption is shown in green, while the yellow and red lines are 1 and 2 standard deviations away from the mean. We see in a) how the standard deviation is greatly impacted by the outlier, because the procedure was run with outlier removal disabled.
 \begin{figure}
 \begin{center}
-
+\includegraphics[scale=0.3]{outliereksempel.png}
 \end{center}
 \caption{Daytype profiles with and without outlier detection}
 \end{figure}
@@ -38,7 +38,7 @@ The average number day types pr. building is 2.74 with a standard deviation of 0
 Often the best way to determine whatever a clustering is successful is by visually inspecting the results. Figure 6.3 shows two distinct day types and how they can be almost entirely separated using only two canonical variates, which explain 66.67\% of the point variability.
 \begin{figure}
 \begin{center}
-
+\includegraphics[scale=0.3]{comparingtwodaysclusterplot.png}
 \end{center}
 \caption{Two distinct day types and a cluster plot of the two day types}
 \end{figure}
@@ -51,7 +51,7 @@ The clustering was tried with the DBSCAN algorithm\footnote{See Related work and
 Based on the day type profiles generated on the training data, the test data was checked for anomalies. The fault detection settings used was an alpha value of 0.05 and the features used for the fault detection were mean hourly consumption and nightly consumption. During the process buildings that did not have any consumption profiles, (due to missing) or days with missing data were discarded. The result was that 391 buildings were processed and in total 2435 days were checked for anomalies. In total 76 anomalies were detected of which 36 had to with a higher than usual consumption. Figure 6.4 shows the detected anomalies across buildings.
 \begin{figure}
 \begin{center}
-
+\includegraphics[scale=0.4]{anomaliesvsbuildings1.png}
 \end{center}
 \caption{Anormalies vs. Buildings}
 \end{figure}
@@ -59,7 +59,7 @@ Based on the day type profiles generated on the training data, the test data was
 The 78 anomalies are spread across 20 buildings. Building 6028 has the largest number of alarms namely 12 from which 11 are due to higher consumption. Investigating this issue further shows that the reason is a higher nightly consumption which is consistently above the means of its two daytype profiles. Figure 6.5 shows the two nightly consumption means from the day types (red lines). The blue lines are the maximum one can move up or down while still being within 2 standard deviations from any of the day type profiles. The black line shows how building 6028 has had a consistently higher than usual consumption at night.
 \begin{figure}
 \begin{center}
-
+\includegraphics[scale=0.4]{nightconsumption6028.png}
 \end{center}
 \caption{The nightly electricity consumption of building 6028}
 \end{figure}
@@ -67,7 +67,7 @@ The 78 anomalies are spread across 20 buildings. Building 6028 has the largest n
 Another way that the fault detection system was tested was to simulate a higher consumption and then see how many days would be detected as having this higher consumption. This test was run with a simulated increase in consumption from 0 - 100\%, and with $\alpha$ values 0.05 and 0.025. The results can be seen in figure 6.6.
 \begin{figure}
 \begin{center}
-
+\includegraphics[scale=0.5]{anomalyvsincrease.png}
 \end{center}
 \caption{Simulated test of the fault detection}
 \end{figure}

@@ -1,31 +1,38 @@
 \documentclass[35pt]{report}
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
-
+\oddsidemargin = 20pt
+\marginparwidth=5pt
+\textwidth = 420pt
+\begin{document}
 \title{
 	{Optimization of building energy consumption}\\
 	{\large University of Southern Denmark \\Software Engineering }\\
 	{\includegraphics{frontpage.png}}
 }
-\author{Almir Mehanovic, Exam nr. XXXX\\Emil Sebastian Rømer, Exam nr. 324790}
-
+\author{Almir Mehanovic, Exam nr. 323335\\Emil Sebastian Rømer, Exam nr. 324790}
 \date{01 June 2015}
 
 
-\begin{document}
 \maketitle
+\pagenumbering{roman}
 
 \chapter*{Abstract}
 \input{chapters/Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 
 \chapter*{Foreword}
 \input{chapters/Foreword}
 
+\addcontentsline{toc}{chapter}{Foreword}
 \tableofcontents
 
+\addcontentsline{toc}{chapter}{Reading guid}
 \chapter*{Reading guide}
 \input{chapters/ReadingGuide}
+
 
 \chapter{Introduction}
 \input{chapters/Introduction}
