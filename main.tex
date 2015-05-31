@@ -2,23 +2,40 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
+
 \graphicspath{ {images/} }
 \oddsidemargin = 20pt
 \marginparwidth=3pt
 \textwidth = 422pt
-\linespread{1.12}
-\begin{document}
-\title{
-	{Optimization of building energy consumption}\\
-	{\large University of Southern Denmark \\Software Engineering }\\
-	{\includegraphics{frontpage.png}}
-}
-\author{Almir Mehanovic, Exam nr. 323335\\Emil Sebastian Rømer, Exam nr. 324790}
-\date{01 June 2015}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{University of Sourthern Denmark \\ SB6-BP-U1}
+\fancyhead[RE,LO]{Almir Mehanovic \\ Emil Sebastian Rømer}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
 
+\linespread{1.15}
+
+\begin{document}
+
+\title{
+	{Recognizing and visualizing energy consumption \\ patterns of buildings using data mining}\\
+	{\large University of Southern Denmark \\ \small Mærsk Mc-Kinney Møller Instituttet \\
+	\large Software Engineering\\
+	\large Bachelor Thesis}\\
+	{\includegraphics[scale=0.7]{frontpage.png}}
+}
+\author{Almir Mehanovic, Exam no. 323335\\Emil Sebastian Rømer, Exam no. 324790}
+\date{\parbox{\linewidth}{\centering%
+	01 June 2015\endgraf\bigskip
+  \textbf{Supervisor:} Mikkel Baun Kjærgaard \hspace*{1cm}\textbf{Supervisor:} Sanja Lazarova-Molnar\endgraf\medskip}}
 
 \maketitle
+
 \pagenumbering{roman}
+
+\input{titlepaper}
 
 \chapter*{Abstract}
 \input{chapters/Abstract}
