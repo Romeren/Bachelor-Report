@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  31 MAY 2015 16:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  31 MAY 2015 18:13
 entering extended mode
 **main.tex
 (C:\Users\EmilSebastian\git\bachelor-repport\main.tex
@@ -382,8 +382,8 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 29.
 <images/usecases.jpg, id=65, 592.2125pt x 662.475pt>
 File: images/usecases.jpg Graphic file (type jpg)
  <use images/usecases.jpg>
-Package pdftex.def Info: images/usecases.jpg used on input line 33.
-(pdftex.def)             Requested size: 177.66512pt x 198.74403pt.
+Package pdftex.def Info: images/usecases.jpg used on input line 34.
+(pdftex.def)             Requested size: 118.4404pt x 132.49265pt.
 ) [15 <C:/Users/EmilSebastian/git/bachelor-repport/images/usecases.jpg>]
 Chapter 4.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex
@@ -560,32 +560,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--244
 
 ) [39 <C:/Users/EmilSebastian/git/bachelor-repport/images/codesnippet.png>]
 Chapter 6.
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/testandevaluation).tex
+Overfull \hbox (20.88947pt too wide) in paragraph at lines 11--23
+[][] 
+ []
+
 [40
 
-]
+] [41] [42]
+<images/electricity_building_2277.jpg, id=181, 730.98094pt x 361.35pt>
+File: images/electricity_building_2277.jpg Graphic file (type jpg)
+
+<use images/electricity_building_2277.jpg>
+Package pdftex.def Info: images/electricity_building_2277.jpg used on input lin
+e 81.
+(pdftex.def)             Requested size: 219.29597pt x 108.40584pt.
+
+<images/plotsimmilarity2.png, id=182, 639.89063pt x 320.69812pt>
+File: images/plotsimmilarity2.png Graphic file (type png)
+
+<use images/plotsimmilarity2.png>
+Package pdftex.def Info: images/plotsimmilarity2.png used on input line 89.
+(pdftex.def)             Requested size: 191.96866pt x 96.21017pt.
+ [43 <C:/Users/EmilSebastian/git/bachelor-repport/images/electricity_building_2
+277.jpg>] [44 <C:/Users/EmilSebastian/git/bachelor-repport/images/plotsimmilari
+ty2.png>]
+Overfull \hbox (2.86232pt too wide) in paragraph at lines 112--113
+ \OT1/cmr/bx/n/10 Com-par-ing build-ings:[] \OT1/cmr/m/n/10 On the build-ing co
+m-par-i-son page, the test user needed
+ []
+
+[45] [46] [47]) [48]
 Chapter 7.
-(C:\Users\EmilSebastian\git\bachelor-repport\literature.tex [41
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/conclusion.tex)
+(C:\Users\EmilSebastian\git\bachelor-repport\literature.tex [49
 
-]) [42
-
-]
-Appendix A.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/appendix01.tex) [43
-
-]
-Appendix B.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/appendix01.tex) [44
+]) [50
 
 ]
 (C:\Users\EmilSebastian\git\bachelor-repport\main.aux) ) 
 Here is how much of TeX's memory you used:
- 1504 strings out of 493921
- 20464 string characters out of 3154476
+ 1516 strings out of 493921
+ 20845 string characters out of 3154476
  77131 words of memory out of 3000000
- 4765 multiletter control sequences out of 15000+200000
+ 4774 multiletter control sequences out of 15000+200000
  9146 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,9n,19p,1641b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,19p,1641b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Latex1/fonts/type1/
 public/amsfonts/cm/cmbx10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmbx12.
 pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Latex1/fonts/type1
@@ -598,9 +619,9 @@ blic/amsfonts/cm/cmr5.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr6.pfb><D
 amsfonts/cm/cmr8.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/L
 atex1/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Latex1/fonts/type1/public/am
 sfonts/cm/cmti10.pfb>
-Output written on main.pdf (46 pages, 1031774 bytes).
+Output written on main.pdf (52 pages, 1178425 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
+ 261 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

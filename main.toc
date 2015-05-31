@@ -31,6 +31,11 @@
 \contentsline {section}{\numberline {5.10}Design of the website}{36}
 \contentsline {section}{\numberline {5.11}Implementation of website}{37}
 \contentsline {chapter}{\numberline {6}Test and evaluation}{40}
-\contentsline {chapter}{\numberline {7}Conclusion}{41}
-\contentsline {chapter}{\numberline {A}Appendix awesome}{43}
-\contentsline {chapter}{\numberline {B}Appendix not so awesome}{44}
+\contentsline {section}{\numberline {6.1}Technical evaluation}{40}
+\contentsline {section}{\numberline {6.2}Usability evaluation }{44}
+\contentsline {paragraph}{Comparing buildings:}{46}
+\contentsline {section}{\numberline {6.3}Utility and efficiency of the product}{46}
+\contentsline {paragraph}{Viewing a specific building}{47}
+\contentsline {paragraph}{Alarms}{48}
+\contentsline {paragraph}{Comparing buildings}{48}
+\contentsline {chapter}{\numberline {7}Conclusion}{49}
