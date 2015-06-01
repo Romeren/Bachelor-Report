@@ -46,4 +46,4 @@
 \contentsline {section}{\numberline {7.3}Fault detection, diagnosis and resolution}{46}
 \contentsline {section}{\numberline {7.4}Budgeting}{46}
 \contentsline {section}{\numberline {7.5}Selecting buildings for renovation}{46}
-\contentsline {section}{\numberline {7.6}Project overall}{47}
+\contentsline {section}{\numberline {7.6}The Project}{47}

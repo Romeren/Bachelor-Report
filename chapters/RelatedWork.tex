@@ -4,7 +4,7 @@ Within recent years numerous research papers have emerged showing successful app
 The most visible pattern that emerge from time series data of building energy consumption is the daily rise and fall in consumption, which loops every 24 hours following the daily cycles of building users. Also a weekly cycle can be noticed, as different days of the week tend to have different consumption profiles. If looking at several years of data, the yearly cycle following the seasonal changes in environmental conditions can be seen. These cycles form the basis for the components that can be found when decomposing a time serie, and which could be used to reconstruct the original by combining the components. For instance considering the weekly cycles and yearly seasonal change, it would be possible to make a decomposition into a Cyclical Component, and a Seasonal Component\footnote{http://en.wikipedia.org/wiki/Decomposition\_of\_time\_series}. Additionally the decomposition can produce a Trend Component and an Irregular Component. The Trend Component reflects the long term progression irrespective of any cycles and seasonality, while the Irregular Component is the noise in the original time serie which could not be explained with the other components. Figure 4.1 shows an example of a decomposition.
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.2]{stldecomposition.jpg}
+\includegraphics[scale=0.6]{stldecomposition.jpg}
 \end{center}
 \caption{Decomposition of time series}
 \end{figure}
@@ -44,7 +44,9 @@ If there is an outlier it is removed and the test is performed again, until a sp
 
 In \cite{faultdetec2} the GESD procedure is applied to each feature of an observation to detect an outlier. However as figure 4,3 illustrates, an outlier in a multidimensional dataset is not always an univariate outlier. Considering the $x$ and $y$ values independently does not obviously reveal the outlier flagged in the first graph. 
 \begin{figure}
+\begin{center}
 \includegraphics[scale=0.75]{outlier.png}
+\end{center}
 \caption{Multivariate outliers}
 \end{figure}
 To deal with multivariate outliers one needs a proper method capable of considering the correlation between features. One such method is PCOut \cite{OutDetec1}. PCOut is an advanced algorithm which utilize inherent properties of principal components decomposition for outlier detection in high dimensional data. It does not require that the data come from any particular distribution, and is computationally fast.
