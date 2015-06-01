@@ -18,7 +18,7 @@ Part 1 includes the gathering, formatting and storing of primary building and co
 
 Part 2 consists of a number of R\footnote{http://www.r-project.org/} scripts, which will read the raw meter data from the database and perform a number of operations to convert the data into the kind of information that can fulfill the requirements. This includes extracting various features from the consumption, calculating consumption profiles, detecting faults and leakages, comparing buildings and more. Section \emph{Processing Data} describes the details of this process. The results of these operations are stored back to the database, where they can be accessed by Part 3 of the system.
 
-Part 3 is the website that users will see, which is hosted in an Amazon s3 bucket\footnote{http://aws.amazon.com/s3/}. The website is powered purely by html and Javascript and might be considered static\footnote{http://en.wikipedia.org/wiki/Static\_web\_page}. In order to connect the website with the central database, Dreamfactory has been used. It is a framework for automatically creating a RESTful web service which allows front-end applications to easily connect to the backend. Dreamfactory\footnote{https://www.dreamfactory.com/} exposes the database via a REST API, which uses JSON to transfer data to and from the database. The communication with the database is further simplified by making the website use the Javascript client library provided by Dreamfactory. The design and implementation of the website will be discussed in sections \emph{Design of the Website} and \emph{Implementation of the website}.
+Part 3 is the website that users will see, which is hosted in an Amazon s3 bucket\footnote{http://aws.amazon.com/s3/}. The website is powered purely by html and Javascript and might be considered static\footnote{http://en.wikipedia.org/wiki/Static\_web\_page}. In order to connect the website with the central database, Dreamfactory has been used. The design and implementation of the website will be discussed in sections \emph{Design of the Website} and \emph{Implementation of the website}.
 \section{Integration with Energy Key}
 The integration with Energy Key was done in four main steps. First, a number of exports from Energy Key were made to gather data about buildings their attributes and which meters are installed in them. Then in step two a year worth of measurements from the meters were exported. In step three the data was cleaned to sort out inconsistencies. And finally in step four a continues flow of data from Energy Key to BEOVulf was set up.
 \section*{Step 1 exporting buildings and meters}
@@ -223,15 +223,15 @@ To ensure a rapid development of the prototype a number of libraries and technol
 \caption{Template framework}
 \end{figure}
 \section*{Technologies}
-The following technologies is the most important technologies used in the web application.
+~\newline
+The following technologies are the most important technologies used in the web application.
 \begin{itemize}
 \item JQuery\footnote{https://jquery.com} has been used to lessen the code needed to be written and to more easily handle events and animations.
-\item The Bootstrap\footnote{http://getbootstrap.com} framework has been used for styling and in order to make the application more responsive and lean towards a mobile first development to ensure portability.
+\item The Bootstrap\footnote{http://getbootstrap.com} framework has been used for styling and making the website more responsive and lean towards a mobile first development ensuring portability.
 \item D3\footnote{http://d3js.org/} (Data Driven Documents) library has been used in order to create visualizations of the data.
 \item Dream Factory\footnote{https://www.dreamfactory.com/} has been integreted for backend communication.
 \end{itemize}
-Dream Factory is an open source platform, which creates a RESTful service and API to database. Thereby enabling the front end application to get and set data from the database through the client SDK. 
-After a session has been established, through a login (either by an anonymous or by a registered user profile) data can be retrieved the client SDK. 
+DreamFactory is a framework for automatically creating a RESTful web service which allows front-end applications to easily connect to the backend. Dreamfactory exposes the database via a REST API, which uses JSON to transfer data to and from the database. The communication with the database is further simplified by making the website use the Javascript client library provided by Dreamfactory.
 
 The code snippet in figure 5.14 shows how the Comparing buildings page gets data for the charts.
 \begin{figure}
@@ -241,9 +241,7 @@ The code snippet in figure 5.14 shows how the Comparing buildings page gets data
 \caption{Code snippet of how to retrieve data}
 \end{figure}
 The \emph{getRecords} method takes two parameters: an object containing information of what to retrieve and where to retrieve it, and a callback-function.
-The object-parameter has numerous configuration parameters. Mainly, in the implementation of the web-site, only three is used (\emph{table\_name, fields and filter}), which specifies the content of a basic SQL select-statement.
+The object-parameter has numerous configuration parameters. Mainly, in the implementation of the web-site, only three are used (\emph{table\_name, fields and filter}), which specifies the content of a basic SQL select-statement.
 \newline
 \newline
-For further description of the implementation of the website see Appendix 06 -Implementation of the Website. This appendix discuss the implementation of the requirements on the website, the structure of the HTML and the relation between the different HTML files and JavaScripts files.
-
-
+For a more in depth description of the implementation of the website, see Appendix 06 -Implementation of the Website. In this appendix requirements for the website and their implementation is discussed, along with the structure of the HTML and the relation between the different HTML files and JavaScripts files.
