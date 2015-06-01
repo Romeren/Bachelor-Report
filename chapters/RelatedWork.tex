@@ -44,7 +44,9 @@ If there is an outlier it is removed and the test is performed again, until a sp
 
 In \cite{faultdetec2} the GESD procedure is applied to each feature of an observation to detect an outlier. However as figure 4,3 illustrates, an outlier in a multidimensional dataset is not always an univariate outlier. Considering the $x$ and $y$ values independently does not obviously reveal the outlier flagged in the first graph. 
 \begin{figure}
+\begin{center}
 \includegraphics[scale=0.75]{outlier.png}
+\end{center}
 \caption{Multivariate outliers}
 \end{figure}
 To deal with multivariate outliers one needs a proper method capable of considering the correlation between features. One such method is PCOut \cite{OutDetec1}. PCOut is an advanced algorithm which utilize inherent properties of principal components decomposition for outlier detection in high dimensional data. It does not require that the data come from any particular distribution, and is computationally fast.
