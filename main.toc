@@ -7,11 +7,11 @@
 \contentsline {chapter}{\numberline {3}Requirements}{7}
 \contentsline {section}{\numberline {3.1}System and data maintenance}{7}
 \contentsline {section}{\numberline {3.2}Visualization of buildings and consumptions}{8}
-\contentsline {section}{\numberline {3.3}Fault detection, diagnosis and resolution}{9}
+\contentsline {section}{\numberline {3.3}Fault detection, diagnosis and resolution}{8}
 \contentsline {section}{\numberline {3.4}Budgeting}{9}
 \contentsline {section}{\numberline {3.5}Selecting buildings for renovation}{9}
 \contentsline {section}{\numberline {3.6}Other requirements}{9}
-\contentsline {section}{\numberline {3.7}Prioritization of requirements}{10}
+\contentsline {section}{\numberline {3.7}Prioritization of requirements}{9}
 \contentsline {section}{\numberline {3.8}Overall system description}{10}
 \contentsline {chapter}{\numberline {4}Related Work and Methods}{12}
 \contentsline {section}{\numberline {4.1}Decomposing time series}{12}
@@ -22,11 +22,11 @@
 \contentsline {section}{\numberline {5.2}Overall architecture}{17}
 \contentsline {section}{\numberline {5.3}Integration with Energy Key}{19}
 \contentsline {section}{\numberline {5.4}The central database}{21}
-\contentsline {section}{\numberline {5.5}Processing data}{23}
-\contentsline {section}{\numberline {5.6}Creating consumption profiles}{24}
+\contentsline {section}{\numberline {5.5}Processing data}{24}
+\contentsline {section}{\numberline {5.6}Creating consumption profiles}{25}
 \contentsline {subparagraph}{Preprocessing:}{26}
 \contentsline {subparagraph}{Outlier detection:}{26}
-\contentsline {subparagraph}{LDA:}{26}
+\contentsline {subparagraph}{LDA:}{27}
 \contentsline {subparagraph}{Clustering}{27}
 \contentsline {section}{\numberline {5.7}Comparing buildings}{27}
 \contentsline {section}{\numberline {5.8}Detecting faults}{28}

@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 02:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 04:46
 entering extended mode
 **main.tex
-(C:\Users\EmilSebastian\git\bachelor-repport\main.tex
+(C:\bachelor\Bachelor-Report\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,9 +13,9 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(D:\Latex1\tex\latex\base\report.cls
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(D:\Latex1\tex\latex\base\size10.clo
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,18 +30,20 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (D:\Latex1\tex\latex\base\inputenc.sty
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(D:\Latex1\tex\latex\base\utf8.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
- (D:\Latex1\tex\latex\base\t1enc.dfu
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -191,7 +193,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(D:\Latex1\tex\latex\base\ot1enc.dfu
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -221,7 +223,8 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 )
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
- (D:\Latex1\tex\latex\base\omsenc.dfu
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -245,31 +248,31 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(D:\Latex1\tex\latex\graphics\graphicx.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(D:\Latex1\tex\latex\graphics\keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-(D:\Latex1\tex\latex\graphics\graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(D:\Latex1\tex\latex\graphics\trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(D:\Latex1\tex\latex\00miktex\graphics.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(D:\Latex1\tex\latex\pdftex-def\pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(D:\Latex1\tex\generic\oberdiek\infwarerr.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(D:\Latex1\tex\generic\oberdiek\ltxcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -277,7 +280,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(D:\Latex1\tex\latex\fancyhdr\fancyhdr.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -308,7 +311,7 @@ less on input line 16.
 LaTeX Warning: Unused global option(s):
     [35pt].
 
-(C:\Users\EmilSebastian\git\bachelor-repport\main.aux)
+(C:\bachelor\Bachelor-Report\main.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
@@ -322,7 +325,7 @@ LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 
-(D:\Latex1\tex\context\base\supp-pdf.mkii
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count89
 \scratchdimen=\dimen105
@@ -349,9 +352,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 34.
  [1
 
-{C:/Users/EmilSebastian/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/
-Users/EmilSebastian/git/bachelor-repport/images/frontpage.png>] (C:\Users\EmilS
-ebastian\git\bachelor-repport\titlepaper.tex
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/bachelor/Bachelor-Repo
+rt/images/frontpage.png>]
+(C:\bachelor\Bachelor-Report\titlepaper.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -407,16 +410,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1] (C:\Users\EmilSebastian\git\bachelor-repport\chapters/Abstract.tex)
-[2
+[1] (C:\bachelor\Bachelor-Report\chapters/Abstract.tex) [2
 
-] (C:\Users\EmilSebastian\git\bachelor-repport\chapters/Foreword.tex
+]
+(C:\bachelor\Bachelor-Report\chapters/Foreword.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--5
 
  []
 
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
-(D:\Latex1\tex\latex\base\omscmr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
@@ -424,17 +427,16 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 ) [3
 
 ]
-(C:\Users\EmilSebastian\git\bachelor-repport\main.toc [4
+(C:\bachelor\Bachelor-Report\main.toc [4
 
 ])
 \tf@toc=\write3
  [5]
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/ReadingGuide.tex)
-[6
+(C:\bachelor\Bachelor-Report\chapters/ReadingGuide.tex) [6
 
 ]
 Chapter 1.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Introduction.tex
+(C:\bachelor\Bachelor-Report\chapters/Introduction.tex
 Underfull \hbox (badness 10000) in paragraph at lines 6--6
 [][]\OT1/cmr/m/n/8 http://www.kebmin.dk/klima-energi-bygningspolitik/dansk-klim
 a-energi-bygningspolitik/byggeriet-
@@ -444,15 +446,13 @@ a-energi-bygningspolitik/byggeriet-
 
 ]) [2]
 Chapter 2.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Background.tex [3
+(C:\bachelor\Bachelor-Report\chapters/Background.tex [3
 
-]
-[4]) [5] [6]
+] [4]) [5] [6]
 Chapter 3.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/Requirements.tex [7
+(C:\bachelor\Bachelor-Report\chapters/Requirements.tex [7
 
-]
-[8]
+] [8]
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 29.
 
@@ -462,9 +462,9 @@ File: images/usecases.jpg Graphic file (type jpg)
 <use images/usecases.jpg>
 Package pdftex.def Info: images/usecases.jpg used on input line 34.
 (pdftex.def)             Requested size: 355.33023pt x 397.48807pt.
-) [10] [11 <C:/Users/EmilSebastian/git/bachelor-repport/images/usecases.jpg>]
+) [10] [11 <C:/bachelor/Bachelor-Report/images/usecases.jpg>]
 Chapter 4.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex
+(C:\bachelor\Bachelor-Report\chapters/RelatedWork.tex
 <images/stldecomposition.jpg, id=76, 962.59625pt x 577.15625pt>
 File: images/stldecomposition.jpg Graphic file (type jpg)
 
@@ -478,8 +478,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--15
 
 [12
 
-] [13 <C:/Users/EmilSebastian/git/bachelor-repport/images/stldecomposition.jpg>
-] <images/cluster.png, id=84, 465.23813pt x 206.27063pt>
+] [13 <C:/bachelor/Bachelor-Report/images/stldecomposition.jpg>]
+<images/cluster.png, id=84, 465.23813pt x 206.27063pt>
 File: images/cluster.png Graphic file (type png)
 
 <use images/cluster.png>
@@ -490,30 +490,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--29
 
  []
 
-[14 <C:/Users/EmilSebastian/git/bachelor-repport/images/cluster.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+[14 <C:/bachelor/Bachelor-Report/images/cluster.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 37--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--45
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
-[15] <images/outlier.png, id=93, 472.76625pt x 135.50626pt>
+<images/outlier.png, id=89, 472.76625pt x 135.50626pt>
 File: images/outlier.png Graphic file (type png)
 
 <use images/outlier.png>
-Package pdftex.def Info: images/outlier.png used on input line 48.
+Package pdftex.def Info: images/outlier.png used on input line 47.
 (pdftex.def)             Requested size: 354.5738pt x 101.62943pt.
-) [16 <C:/Users/EmilSebastian/git/bachelor-repport/images/outlier.png>]
+) [15] [16 <C:/bachelor/Bachelor-Report/images/outlier.png>]
 Chapter 5.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/designAimplement.tex
+(C:\bachelor\Bachelor-Report\chapters/designAimplement.tex
 <images/process.png, id=98, 434.37282pt x 232.61906pt>
 File: images/process.png Graphic file (type png)
 
@@ -529,9 +529,8 @@ Package pdftex.def Info: images/DeploymentDiagramv3.png used on input line 14.
 (pdftex.def)             Requested size: 208.6824pt x 252.045pt.
  [17
 
- <C:/Users/EmilSebastian/git/bachelor-repport/images/process.png>] [18 <C:/User
-s/EmilSebastian/git/bachelor-repport/images/DeploymentDiagramv3.png (PNG copy)>
-] [19] [20]
+ <C:/bachelor/Bachelor-Report/images/process.png>] [18 <C:/bachelor/Bachelor-Re
+port/images/DeploymentDiagramv3.png (PNG copy)>] [19] [20]
 <images/Buildingsdbnew.jpg, id=114, 1455.4375pt x 833.1125pt>
 File: images/Buildingsdbnew.jpg Graphic file (type jpg)
 
@@ -545,10 +544,9 @@ File: images/WebSitesidedb.png Graphic file (type png)
 <use images/WebSitesidedb.png>
 Package pdftex.def Info: images/WebSitesidedb.png used on input line 68.
 (pdftex.def)             Requested size: 381.01451pt x 294.89479pt.
- [22 <C:/Users/EmilSebastian/git/bachelor-repport/images/Buildingsdbnew.jpg>] [
-23 <C:/Users/EmilSebastian/git/bachelor-repport/images/WebSitesidedb.png (PNG c
-opy)>]
-<images/illustrationofvector.png, id=125, 781.41937pt x 124.96687pt>
+ [22 <C:/bachelor/Bachelor-Report/images/Buildingsdbnew.jpg>] [23 <C:/bachelor/
+Bachelor-Report/images/WebSitesidedb.png (PNG copy)>] <images/illustrationofvec
+tor.png, id=125, 781.41937pt x 124.96687pt>
 File: images/illustrationofvector.png Graphic file (type png)
 
 <use images/illustrationofvector.png>
@@ -560,9 +558,8 @@ Overfull \hbox (36.00644pt too wide) in paragraph at lines 86--107
  [] 
  []
 
-[24 <C:/Users/EmilSebastian/git/bachelor-repport/images/illustrationofvector.pn
-g>] [25] [26]
-<images/buildingsimmilarity.png, id=138, 619.56468pt x 142.28156pt>
+[24 <C:/bachelor/Bachelor-Report/images/illustrationofvector.png>] [25]
+[26] <images/buildingsimmilarity.png, id=138, 619.56468pt x 142.28156pt>
 File: images/buildingsimmilarity.png Graphic file (type png)
 
 <use images/buildingsimmilarity.png>
@@ -576,9 +573,8 @@ File: images/normalDist.PNG Graphic file (type png)
 <use images/normalDist.PNG>
 Package pdftex.def Info: images/normalDist.PNG used on input line 161.
 (pdftex.def)             Requested size: 192.71953pt x 88.07884pt.
- [28 <C:/Users/EmilSebastian/git/bachelor-repport/images/buildingsimmilarity.pn
-g>]
-<images/histogramnormaldists.png, id=148, 454.69875pt x 429.605pt>
+ [28 <C:/bachelor/Bachelor-Report/images/buildingsimmilarity.png>]
+<images/histogramnormaldists.png, id=147, 454.69875pt x 429.605pt>
 File: images/histogramnormaldists.png Graphic file (type png)
 
 <use images/histogramnormaldists.png>
@@ -590,9 +586,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
-[29 <C:/Users/EmilSebastian/git/bachelor-repport/images/normalDist.PNG>]
-[30 <C:/Users/EmilSebastian/git/bachelor-repport/images/histogramnormaldists.pn
-g>] <images/FlowDiabramWebSite.jpg, id=158, 341.275pt x 371.3875pt>
+[29 <C:/bachelor/Bachelor-Report/images/normalDist.PNG>] [30 <C:/bachelor/Bache
+lor-Report/images/histogramnormaldists.png>]
+<images/FlowDiabramWebSite.jpg, id=158, 341.275pt x 371.3875pt>
 File: images/FlowDiabramWebSite.jpg Graphic file (type jpg)
 
 <use images/FlowDiabramWebSite.jpg>
@@ -606,8 +602,7 @@ File: images/W_template_eksample.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/W_template_eksample.jpg used on input line 220.
 
 (pdftex.def)             Requested size: 204.76657pt x 96.36073pt.
- [32 <C:/Users/EmilSebastian/git/bachelor-repport/images/FlowDiabramWebSite.jpg
->]
+ [32 <C:/bachelor/Bachelor-Report/images/FlowDiabramWebSite.jpg>]
 <images/codesnippet.png, id=166, 409.53pt x 100.87688pt>
 File: images/codesnippet.png Graphic file (type png)
 
@@ -619,14 +614,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--241
 
  []
 
-[33 <C:/Users/EmilSebastian/git/bachelor-repport/images/W_template_eksample.jpg
-> <C:/Users/EmilSebastian/git/bachelor-repport/images/codesnippet.png>])
-[34]
+) [33 <C:/bachelor/Bachelor-Report/images/W_template_eksample.jpg>] [34 <C:/bac
+helor/Bachelor-Report/images/codesnippet.png>]
 Chapter 6.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/testandevaluation).tex
-[35
+(C:\bachelor\Bachelor-Report\chapters/testandevaluation).tex [35
 
-] <images/outliereksempel.png, id=177, 678.28406pt x 315.42844pt>
+]
+<images/outliereksempel.png, id=177, 678.28406pt x 315.42844pt>
 File: images/outliereksempel.png Graphic file (type png)
 
 <use images/outliereksempel.png>
@@ -640,7 +634,7 @@ File: images/comparingtwodaysclusterplot.png Graphic file (type png)
 Package pdftex.def Info: images/comparingtwodaysclusterplot.png used on input l
 ine 41.
 (pdftex.def)             Requested size: 329.05688pt x 111.7935pt.
- [36 <C:/Users/EmilSebastian/git/bachelor-repport/images/outliereksempel.png>]
+ [36 <C:/bachelor/Bachelor-Report/images/outliereksempel.png>]
 <images/anomaliesvsbuildings1.png, id=184, 372.64218pt x 297.36093pt>
 File: images/anomaliesvsbuildings1.png Graphic file (type png)
 
@@ -663,11 +657,10 @@ File: images/anomalyvsincrease.png Graphic file (type png)
 <use images/anomalyvsincrease.png>
 Package pdftex.def Info: images/anomalyvsincrease.png used on input line 70.
 (pdftex.def)             Requested size: 134.15222pt x 82.88528pt.
- [37 <C:/Users/EmilSebastian/git/bachelor-repport/images/comparingtwodayscluste
-rplot.png>] [38 <C:/Users/EmilSebastian/git/bachelor-repport/images/anomaliesvs
-buildings1.png> <C:/Users/EmilSebastian/git/bachelor-repport/images/nightconsum
-ption6028.png> <C:/Users/EmilSebastian/git/bachelor-repport/images/anomalyvsinc
-rease.png>]
+ [37 <C:/bachelor/Bachelor-Report/images/comparingtwodaysclusterplot.png>] [38 
+<C:/bachelor/Bachelor-Report/images/anomaliesvsbuildings1.png> <C:/bachelor/Bac
+helor-Report/images/nightconsumption6028.png> <C:/bachelor/Bachelor-Report/imag
+es/anomalyvsincrease.png>]
 <images/electricity_building_2277.jpg, id=196, 730.98094pt x 361.35pt>
 File: images/electricity_building_2277.jpg Graphic file (type jpg)
 
@@ -682,9 +675,8 @@ File: images/plotsimmilarity2.png Graphic file (type png)
 <use images/plotsimmilarity2.png>
 Package pdftex.def Info: images/plotsimmilarity2.png used on input line 89.
 (pdftex.def)             Requested size: 191.96866pt x 96.21017pt.
- [39 <C:/Users/EmilSebastian/git/bachelor-repport/images/electricity_building_2
-277.jpg>] [40 <C:/Users/EmilSebastian/git/bachelor-repport/images/plotsimmilari
-ty2.png>] [41] [42]
+ [39 <C:/bachelor/Bachelor-Report/images/electricity_building_2277.jpg>] [40 <C
+:/bachelor/Bachelor-Report/images/plotsimmilarity2.png>] [41] [42]
 Overfull \hbox (0.39027pt too wide) in paragraph at lines 137--138
  \OT1/cmr/bx/n/10 Com-par-ing build-ings[] \OT1/cmr/m/n/10 Re-gard-ing the page
  for com-par-ing mul-ti-ple con-sump-tion the test showed
@@ -692,35 +684,39 @@ Overfull \hbox (0.39027pt too wide) in paragraph at lines 137--138
 
 [43]) [44]
 Chapter 7.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/conclusion.tex [45
+(C:\bachelor\Bachelor-Report\chapters/conclusion.tex [45
+
+] [46])
+(C:\bachelor\Bachelor-Report\literature.tex [47]) [48
 
 ]
-[46]) (C:\Users\EmilSebastian\git\bachelor-repport\literature.tex [47])
-[48
-
-] (C:\Users\EmilSebastian\git\bachelor-repport\main.aux) ) 
+(C:\bachelor\Bachelor-Report\main.aux) ) 
 Here is how much of TeX's memory you used:
  1676 strings out of 493921
- 23242 string characters out of 3154476
- 77033 words of memory out of 3000000
+ 23436 string characters out of 3147282
+ 78033 words of memory out of 3000000
  4920 multiletter control sequences out of 15000+200000
  9752 words of font info for 34 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,11n,43p,1642b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Latex1/fonts/type
-1/public/amsfonts/cm/cmbx10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Latex1/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmmi
-5.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Latex1/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr10.
-pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Latex1/fonts/type1/
-public/amsfonts/cm/cmr17.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr5.pfb
-><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Latex1/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/
-Latex1/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Latex1/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/La
-tex1/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (55 pages, 1737179 bytes).
+ 27i,11n,43p,1647b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (55 pages, 1777786 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
