@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 02:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 03:04
 entering extended mode
 **main.tex
 (C:\Users\EmilSebastian\git\bachelor-repport\main.tex
@@ -465,12 +465,12 @@ Package pdftex.def Info: images/usecases.jpg used on input line 34.
 ) [10] [11 <C:/Users/EmilSebastian/git/bachelor-repport/images/usecases.jpg>]
 Chapter 4.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex
-<images/stldecomposition.jpg, id=76, 962.59625pt x 577.15625pt>
+<images/stldecomposition.jpg, id=76, 502.87875pt x 301.8778pt>
 File: images/stldecomposition.jpg Graphic file (type jpg)
 
 <use images/stldecomposition.jpg>
 Package pdftex.def Info: images/stldecomposition.jpg used on input line 7.
-(pdftex.def)             Requested size: 192.51584pt x 115.4292pt.
+(pdftex.def)             Requested size: 301.72957pt x 181.12807pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--15
 
@@ -505,7 +505,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--45
 
  []
 
-[15] <images/outlier.png, id=93, 472.76625pt x 135.50626pt>
+[15] <images/outlier.png, id=92, 472.76625pt x 135.50626pt>
 File: images/outlier.png Graphic file (type png)
 
 <use images/outlier.png>
@@ -562,13 +562,13 @@ Overfull \hbox (36.00644pt too wide) in paragraph at lines 86--107
 
 [24 <C:/Users/EmilSebastian/git/bachelor-repport/images/illustrationofvector.pn
 g>] [25] [26]
-<images/buildingsimmilarity.png, id=138, 619.56468pt x 142.28156pt>
+<images/buildingsimmilarity.png, id=138, 619.56468pt x 128.73094pt>
 File: images/buildingsimmilarity.png Graphic file (type png)
 
 <use images/buildingsimmilarity.png>
 Package pdftex.def Info: images/buildingsimmilarity.png used on input line 141.
 
-(pdftex.def)             Requested size: 309.78157pt x 71.1406pt.
+(pdftex.def)             Requested size: 309.78157pt x 64.3653pt.
  [27]
 <images/normalDist.PNG, id=142, 385.44pt x 176.15813pt>
 File: images/normalDist.PNG Graphic file (type png)
@@ -720,7 +720,7 @@ ic/amsfonts/cm/cmr7.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/
 Latex1/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Latex1/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/La
 tex1/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (55 pages, 1737179 bytes).
+Output written on main.pdf (55 pages, 1742578 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
