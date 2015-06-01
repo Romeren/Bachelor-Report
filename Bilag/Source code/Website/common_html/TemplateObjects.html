@@ -1,0 +1,1938 @@
+  <!--
+--------------------------------------------------------------------------------
+--              template framework                                            --
+--------------------------------------------------------------------------------
+  -->
+<script>
+var test;
+var hest; // <- hest is the new test..!
+    var templates = {};
+    var onTempaleObjCreated;
+
+    var panelMap = {}; // dictionary<string, object>
+    var numberOfPanels =0;
+
+    //consumption changed event:
+    window.consumptiontypes = [1, 8, 7];
+    window.activeConsumption = 8;
+    var onConsumptionTypeChanged = new CustomEvent("consumptiontypeChanged", {"detail": window.activeConsumption}); 
+
+    //<!-- class for extendtion! -->
+    var TempObj = function(name, templatehtmlClass){
+        this.templateName = name;
+        this.templatehtml =$('.'+ templatehtmlClass);
+        
+        this.fillOut = function(){
+            return this.templatehtml.clone();
+        }
+
+        this.initialize = function(){
+            return;
+        }
+    }
+
+    var customAddTemplate = function(template){
+        templates[template.templateName] = template;
+    }
+
+    var getTemplate = function(templateName, fillOutData, classLocation){
+        
+        if(templateName in templates){
+            var template = templates[templateName];
+
+            if(fillOutData != null) fillOutData.pageLocation = classLocation;
+            
+            var domObj = template.fillOut(fillOutData);
+
+            $('.'+classLocation).append(domObj);
+            
+            if(fillOutData != null) template.initialize();
+
+            document.dispatchEvent(onTempaleObjCreated);
+
+            return domObj;
+        }
+    }
+
+    $(function(){
+        onTempaleObjCreated = document.createEvent('Event');
+
+        onTempaleObjCreated.initEvent('templateObjCreated', true, true);
+    })
+
+</script>
+<!--
+--------------------------------------------------------------------------------
+--              templates                                                     --
+--------------------------------------------------------------------------------
+-->
+  <!-- A template element is needed when list is empty, TODO: needs a better solution -->
+    <!-- CARDS -->
+    <div id="card-item" class="card item">
+        <div class="sortable-layout ui-sortable" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+            <div class="panel panel-default toggle">
+                <div class="panel-heading"> 
+                    <h4 class="panel-title list-group-item building_name"></h4>
+                </div>
+                <div class="panel-body">
+                    <div class="card-content container-fluid">
+                        <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <img src="">
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h5 class="list-group-item street"></h5><br>
+                            <h6 class="list-group-item zip_code">   </h6><h6 class="list-group-item districtname"></h6>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h6>Type:</h6> <h6 class="list-group-item building_subtype"></h6><br>
+                            <h6>Category:</h6><h6 class="list-group-item building_supertype"></h6>
+                        </div>
+                        <!--
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h6>Built area:</h6> <h6 class="list-group-item built_area"></h6><br>
+                            <h6>Heated area:</h6><h6 class="list-group-item heated_area"></h6>
+                            <h6>Cellar area:</h6><h6 class="list-group-item cellar_area"></h6>
+                        </div>
+                        -->
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <div class="pie-charts">
+                                <div class="easyPieChart list-group-item data_quality" data-percent="45" style="width: 100px; height: 100px; line-height: 100px;">
+                                <canvas height="100" width="100"></canvas>
+                                </div>
+                                <div class="label">Data Quality</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-fotter">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARDS END -->
+<script>
+
+    function BuildingItem(building_info){
+    this.building_id        = building_info['building_id'];
+    this.building_name      = building_info['building_name'];
+    this.street             = building_info['street'];
+    this.zip_code           = building_info['zip_code'];
+    this.districtname       = building_info['district_name'];
+    this.building_subtype   = building_info['sub_type'];
+    this.building_supertype = building_info['super_type'];
+    this.built_area         = building_info['built_area'];
+    this.building_area      = building_info['building_area'];
+    this.heated_area        = building_info['heated_area'];
+    this.total_area         = building_info['total_area'];
+    this.attic              = building_info['attic'];
+    this.cellar_area        = building_info['cellar_area'];
+    this.total_recidence    = building_info['total_recidence'];
+    this.site_area          = building_info['site_area'];
+    this.rank               = building_info['ranking'];
+    this.data_quality       = building_info['data_quality'];
+    this.pieChart;
+    this.validatedAt        = building_info['validatedAt']; 
+
+    this.initBuildingItem = function(elementNr, containing_listObj){
+
+        element = containing_listObj.get('building_id', this.building_id)[0].elm;
+        if(element == undefined)
+            return;
+        element.buildingItem = this; 
+        var sortUIElm  = element.children[0];
+
+        $(element).click(function(e){
+
+            window.activebuilding = this.buildingItem;
+            $('#PageContent').load('pages/BuildingViewer.html');
+        });
+
+        sortUIElm.setAttribute('id', 'sqr_' +elementNr);
+
+        this.pieChart = sortUIElm.getElementsByClassName('easyPieChart')[0];
+        this.pieChart.setAttribute('data-percent', this.data_quality);
+
+        if(this.data_quality < 20){
+            var temp = this.pieChart.className + ' easy-pie-chart-red';
+            this.pieChart.className = temp;
+        }else if(this.data_quality < 70){
+            var temp = this.pieChart.className + ' easy-pie-chart-blue';
+            this.pieChart.className = temp;
+        }else{
+            var temp = this.pieChart.className + ' easy-pie-chart-green';
+            this.pieChart.className = temp;
+        }
+    };
+}
+</script>
+
+<!--
+---------------------------------------------------------------------------
+--    panel templates                                                   --
+--------------------------------------------------------------------------
+-->
+
+<!--
+---------------------------------------------------------------------------
+--    consumptiontype header                                            --
+--------------------------------------------------------------------------
+-->
+    <!-- building header -->
+<div class="tile-wrapper consumptiontype-header-template">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile red ">
+            <div class="tile-icon">
+                <i class="icon-fire"></i>
+            </div>
+            <div class="tile-content">
+                <div class="number countTo" data-from="0" data-to="107"></div>
+                <p class="tile-styled">Heat</p>
+
+                <div class="item">
+                    <i class="icon-checkmark"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile blue ">
+            <div class="tile-icon">
+                <i class="icon-droplet"></i>
+            </div>
+            <div class="tile-content">
+                <div class="number countTo" data-from="0" data-to="2540"></div>
+                <p class="tile-styled">Water</p>
+                <div class="item">
+                    <i class="icon-checkmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile yellow active">
+            <div class="tile-icon">
+                <i class="icon-power"></i>
+            </div>
+            <div class="tile-content">
+                <div class="number countTo" data-from="0" data-to="325"></div>
+                <p class="tile-styled">Electricity</p>
+                <div class="item">
+                    <i class="icon-checkmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile green">
+            <div class="tile-icon">
+                <i class="icon-bell"></i>
+            </div>
+                <div class="tile-content">
+                <div class="number countTo" data-from="0" data-to="24"></div>
+                <p class="tile-styled">Alarms</p>
+                <div class="item">
+                    <i class="icon-checkmark"></i>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+   
+<script>
+$(function(){
+    var temp = new TempObj('consumptionType-header', 'consumptiontype-header-template');
+
+     temp.fillOut = function(data){
+        
+        var result = this.templatehtml.clone();
+
+        var tiles = result.find('.tile');
+        window.activeConsumption = 7;
+
+        for (var i = tiles.length - 1; i >= 0; i--) {
+            var activeTile = tiles[i];
+
+            activeTile.location = data.location;
+            activeTile.index = i;
+
+            activeTile.setActive = function(e){
+                $('.'+this.location +' .tile.active').removeClass('active');
+                $('.'+this.location +' .tile').eq(this.index).addClass('active');
+                window.activeConsumption = window.consumptiontypes[this.index];
+                onConsumptionTypeChanged.detail = window.activeConsumption;
+                document.dispatchEvent(onConsumptionTypeChanged);
+            }
+        };
+        
+        tiles.click(function(e){
+                this.setActive(e);
+            });
+
+
+        return result;
+    }
+    customAddTemplate(temp);
+});
+</script>
+
+
+
+
+<!--
+---------------------------------------------------------------------------
+--    BBR panel                                                         --
+--------------------------------------------------------------------------
+-->
+<div class="panel panel-brown toggle panelMove panelClose panelRefresh bbr-panel-template" style=" position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <ul>
+        <li>
+        <h4 class="panel-title"><i class="icon-office"></i><span class="bbrName"></span></h4>
+        <h4 class="panel-title panel-controls">Last validated: <span class="bbrValidation"></span></h4>
+        </li>
+        </ul>
+    </div>
+    <div class="panel-body">
+            <h4>BBR</h4>
+    <ul>
+        <div class="row">
+        <li>
+            <div class="col-md-3">
+                <b>Address:</b>
+            </div>
+            <div class="col-md-2 bbrAddress">
+                <div class="row">Albaniegade 123</div>
+                <div class="row">5000 Odense C</div>
+            </div>
+        </li>
+        <li>
+            <div class="col-md-3">
+                <b>Areal:</b>
+            </div>
+            <div class="col-md-2 bbrAreal">
+                 650
+            </div>
+        
+            <li>
+            <div class="col-md-3">
+                <b>Heated area:</b>
+            </div>
+            <div class="col-md-2 bbrHeated">
+                 521
+            </div>
+            </li>
+            <div class="col-md-3">
+                <b>Total area:</b>
+            </div>
+            <div class="col-md-2 bbrTotal">
+                 123
+            </div>
+
+        </li>
+        </div>
+        <div class="row">
+        <li>
+            <div class="col-md-3">
+                <b>Built:</b>
+            </div>
+            <div class="col-md-2 bbrBuilt">
+                 521
+            </div>
+        </li>
+        <li>
+            <div class="col-md-3">
+                <b>Residence:</b>
+            </div>
+            <div class="col-md-2 bbrResidence">
+                 123
+            </div>
+        </li>
+        </div>
+        <div class="row">
+        <li> 
+            <div class="col-md-3">
+                <b>Cellar:</b>
+            </div>
+            <div class="col-md-2 bbrCellar">
+                 123
+            </div>
+        </li>
+        <!--<li> 
+            <div class="col-md-3">
+                <b>Total area:</b>
+            </div>
+            <div class="col-md-2 bbrTotal">
+                 123
+            </div>
+        </li>-->
+        </div>
+        <div class="row">
+        <li> 
+            <div class="col-md-3">
+                <b>Attic:</b>
+            </div>
+            <div class="col-md-2 bbrAttic">
+                 123
+            </div>
+        </li>
+        <!--<li> 
+            <div class="col-md-3">
+                <b>Residence:</b>
+            </div>
+            <div class="col-md-2 bbrResidence">
+                 123
+            </div>
+
+        </li>-->
+        </div>
+        <div class="row validationButtonLocation">
+        <li> 
+            <div class="col-md-3">
+                <b>Data Quality:</b>
+            </div>
+            <div class="col-md-2 bbrdata_quality">
+            </div>
+        </li>
+        
+        </div>
+    </ul>
+    </div>
+    <div class="panel-footer brown-bg">
+        <div class="col-md-7"><div class="bbrtype"></div>
+        <div class="bbrsub"></div></div>
+        <div class="col-md-4"><h4 class="panel-title">Rank: <span class="bbrRank"></span></h4></div>
+        <div></div>
+        
+    </div>
+</div>
+
+<script>
+
+$(function(){
+    
+    var temp = new TempObj('bbr-panel', 'bbr-panel-template');
+    
+    temp.fillOut = function(data){
+        
+        var result = this.templatehtml.clone();
+        result.find('.bbrRank').text(data.rank);
+        result.find('.bbrdata_quality').text(data.data_quality);
+        //nuilding id
+        result.find('.bbrName').text(data.building_name);
+        //super type
+        result.find('.bbrtype').text(data.building_supertype);
+        //subtype
+        result.find('.bbrsub').text(data.building_subtype);
+        
+        result.find('.bbrAddress').children()[0].innerHTML = data.street == undefined ? 'undefined' : data.street;
+        result.find('.bbrAddress').children()[1].innerHTML =data.zip_code + ' ' + data.districtname;
+        result.find('.bbrAreal').text(data.built_area == undefined ? 'undefined' : data.built_area);
+        result.find('.bbrBuilt').text(data.building_area == undefined ? 'undefined' : data.building_area);
+        result.find('.bbrHeated').text(data.heated_area == undefined ? 'undefined' : data.heated_area);
+        result.find('.bbrTotal').text(data.total_area == undefined ? 'undefined' : data.total_area);
+        result.find('.bbrAttic').text(data.attic == undefined ? 'undefined' : data.attic);
+        result.find('.bbrCellar').text(data.cellar_area == undefined ? 'undefined' : data.cellar_area);
+        result.find('.bbrResidence').text(data.total_recidence == undefined ? 'undefined' : total_recidence);
+        
+        //last validated:
+        var validatedAt = data.validatedAt;
+        if(validatedAt == undefined)
+        {
+            validatedAt = 'Not validated!';
+            result.find('.bbrValidation').addClass('red-color');    
+
+        }
+        result.find('.bbrValidation').text(validatedAt);
+
+        if(window.app.isSignedIn)
+            result.find('.validationButtonLocation').append(
+            '<li> <div class="col-md-5"><button class="validationButton" data-toggle="modal" data-target="#validationModal" onclick="sendEvent( null, -1)">Validate now</button></div></li>'
+            );
+
+
+        return result;
+    }
+
+    customAddTemplate(temp);
+});
+</script>
+
+
+
+<!--
+---------------------------------------------------------------------------
+--    CONSUMPTION panel                                                 --
+--------------------------------------------------------------------------
+-->
+<div class="panel panel-default toggle panelClose panelRefresh consumption-panel-template" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class="icon-stats-dots"></i>Energy consumption</h4>
+    </div>
+        <div class="panel-body horisontal-scrollpanel carousel slide" style="height: 280px;">
+            <div class="svgWrapper col-lg-11 col-md-11"></div>
+            <div class="slider col-lg-1 col-md-1">
+                    <div class="d3-slider d3-slider-vertical" style="height: 300px;">
+                </div>
+            </div>
+        </div>
+    <div class="panel-footer">
+    <ol class="consumption-list">
+        
+    </ol>
+
+    </div>
+</div>
+<script>
+var consumptionsZoom = function(){ // scrolling on the map..!
+            var conId = $(this).parents('.panel-body.teal-bg.horisontal-scrollpanel').attr('id');
+            var tempObj = panelMap[conId];
+
+            if(tempObj != undefined)
+                tempObj.draw();
+
+        };
+$(function(){
+    var temp = new TempObj('consumption-panel', 'consumption-panel-template');
+    temp.margin_top=50;
+    temp.margin_left=20;
+    temp.svgWidth=500;
+    temp.svgHeight=300;
+
+    temp.fillOut = function(data){ 
+        var result = this.templatehtml.clone();
+        if(data == null) return result;
+
+        this.pageLocation = data.pageLocation;
+
+        //add instanceId:
+        this.instanceId = this.templateName + numberOfPanels;
+        numberOfPanels++;
+        panelMap[this.instanceId] = this;
+        result.find('.panel-body').attr('id', this.instanceId);
+
+
+        this.items = data;
+        
+           var currentItem = data;
+           //set name of item:
+           // formatting data:
+           var d1 = [];
+           currentItem.max_y = 0;
+           currentItem.min_y = 100;
+           for(i=0 ; i < data.length; i++){
+               d1.push({"x": new Date(window.epochTime).addHours(i), "y": data[i]});
+               currentItem.max_y = currentItem.max_y < data[i] ? data[i] : currentItem.max_y;
+               currentItem.min_y = currentItem.min_y > data[i] ? data[i] : currentItem.min_y;
+           }
+           currentItem.min_x = d1[0].x; 
+           currentItem.max_x = d1[data.length -1].x;
+           currentItem.dataObject = d1;
+
+           //get numbers for creating scale function:
+           this.numberofdays = Math.round(currentItem.max_x - currentItem.min_x)/(1000*60*60*24); // calulate number of days between start and end
+           this.numberofdays = Math.round(this.numberofdays/4);  // devide the number with number of days visible on the graph
+
+           //creating scale functions to map between x/y values and x/y pixel values on the svg:
+                    // domain() <-- defines the scale of the graph.
+                    // range()  <-- defines the dimensions of the svg image.
+           var xscalefunc = currentItem.xScaleFunction = d3.time.scale().range([(this.margin_left/2) +0, (this.svgWidth- (this.margin_left/2)) * this.numberofdays]).clamp(true);
+           var yscalefunc = currentItem.yScaleFunction = d3.scale.linear().range([ this.svgHeight - (this.margin_top/2), (this.margin_top/2) ]);
+   
+           //defining how a line is drawn:
+           currentItem.lineFunction = d3.svg.line()
+                   .interpolate("linear") // type of line... what to fill in between x/y points
+                   .x(function(d) { return xscalefunc(d.x) ;}) // the mapping from value to px coordinates
+                   .y(function(d) { return yscalefunc(d.y); }); 
+   
+           //defining how the area under the graph looks like:
+           currentItem.areaFunction = d3.svg.area()
+                   .interpolate("linear") // defining the border interpolation between points
+                   .x(function(d) {  return xscalefunc(d.x); }) // mapping
+                   .y1(function(d) { return yscalefunc(d.y); })
+                   .y0(currentItem.yScaleFunction(currentItem.min_y));
+   
+           // setting up the axises for the graph:
+           currentItem.xAxis = d3.svg.axis()
+                                     .scale(currentItem.xScaleFunction)
+                                     .orient("bottom")
+                                     .tickSize(-(this.svgHeight - this.margin_top), 0).tickPadding(6)
+                                     .ticks(d3.time.hour, 24);
+           currentItem.yAxis = d3.svg.axis()
+                                     .scale(currentItem.yScaleFunction)
+                                     .orient("left"); 
+       return result;
+    }
+
+    
+
+    temp.initialize = function(){
+       
+        var currentItem = this.items; //[i];
+
+        //get svg element:
+        var svg = d3.select("#"+this.instanceId + ' .svgWrapper') //+ ' .index'+i)
+                        .append("svg:svg")
+                        .attr("width", this.svgWidth)
+                        .attr("height", this.svgHeight)
+        var zoomRect = svg.append("svg:rect")
+            .attr("class", "pane")
+            .attr("width", this.svgWidth)
+            .attr("height", this.svgHeight)
+
+        svg = svg.append('g')
+                        .attr("transform", "translate(" +  this.margin_left + ")");;
+
+        //init vertical slider:
+        var slider = d3.select("#"+this.instanceId).select('.d3-slider.d3-slider')
+                            .call(d3.slider()
+                                .value(0)
+                                .max(10)
+                                .min(0)
+                                .orientation("vertical")
+                                .on("slide", 
+                                    function(event, ui){
+                                            zoomWithSlider(1 -ui/10, event); 
+                                            }));
+
+
+        currentItem.svg=svg;
+
+        svg.append("svg:clipPath")
+            .attr("id", "clip")
+          .append("svg:rect")
+            .attr("x", currentItem.xScaleFunction(0))
+            .attr("y", currentItem.yScaleFunction(1))
+            .attr("width", currentItem.xScaleFunction(1) - currentItem.xScaleFunction(0))
+            .attr("height", currentItem.yScaleFunction(0) - currentItem.yScaleFunction(1));
+        
+        svg.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(" + this.margin_left/2 + ",0)");
+        
+        svg.append("svg:g")
+            .attr("class", "x axis")
+            .attr("transform", "translate( 0, " + (this.svgHeight - this.margin_top/2 )+ ")");
+        
+        svg.append("svg:path")
+            .attr("class", "area")
+            .attr("clip-path", "url(#clip)")
+            .style("fill", "url(#gradient)");
+        
+        svg.append("svg:path")
+            .attr("class", "line")
+            .attr("clip-path", "url(#clip)");
+        
+
+        currentItem. rectZoom = zoomRect;
+
+        svg.selectAll('path').attr("transform", "translate("+ -((this.numberofdays-1)* (this.svgWidth - this.margin_left)) +")");
+        svg.select('.x').attr("transform", "translate( "+-((this.numberofdays-1)*(this.svgWidth - this.margin_left))+", " + (this.svgHeight - this.margin_top/2 )+ ")");
+
+
+
+
+        //defining method for drawing the graph:
+        //currentItem.index = i;
+        currentItem.draw = function () {
+
+          this.svg.select(" g.x.axis").call(this.xAxis);
+          this.svg.select(" g.y.axis").call(this.yAxis);
+
+          this.svg.select(" path.area").attr("d",  this.areaFunction);
+          this.svg.select(" path.line").attr("d",  this.lineFunction);
+        }
+
+        // function for handling zoom event
+        currentItem.zoom = function() {
+            
+            var panelId = this.parentElement.parentElement.parentElement.id;
+            panelMap[panelId].items.draw();
+        }
+
+
+        svg.select(" path.area").data([currentItem.dataObject]);
+        svg.select(" path.line").data([currentItem.dataObject]);
+        
+
+        currentItem.xScaleFunction.domain([currentItem.min_x, currentItem.max_x]);
+        currentItem.yScaleFunction.domain([currentItem.min_y, currentItem.max_y]);
+
+        zoomRect.call(d3.behavior.zoom().x(currentItem.xScaleFunction).on("zoom", currentItem.zoom));
+        
+        //draw the damn thing ;)
+        currentItem.draw();
+
+
+        //shift active element:
+        var pLocation = this.pageLocation;
+        document.addEventListener("consumptiontypeChanged", function (e) {
+                var activate = window.consumptiontypes.indexOf(window.activeConsumption);
+                $('.'+pLocation).find('.consumption-panel-template').removeClass('active');
+                $('.'+pLocation).find('.consumption-panel-template').eq(activate).addClass('active');
+          }, false);
+
+
+    function zoomWithSlider(scale, event) {
+
+        var svg = d3.select(event.target.parentElement.parentElement).select('svg');
+        var container = svg.select("g");
+        var h = svg.attr("height"), w = svg.attr("width");
+        
+        // Note: works only on the <g> element and not on the <svg> element
+    // which is a common mistake
+
+        container.attr("transform",
+                "translate(" + w/2 + ", " + h/2 + ") " +
+                "scale(" + scale + ", 1) " +
+                "translate(" + (-w/2) + ", " + (-h/2) + ")");
+        }
+
+    }
+    
+    customAddTemplate(temp);
+});  
+
+
+
+</script>
+<!--
+--------------------------------------------------------------------------
+--    Energy profiles panel                                             --
+--------------------------------------------------------------------------
+-->
+<div class="panel panel-default toggle panelClose panelRefresh profiles-panel-template" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class="icon-stats-dots"></i>Energy Profiles</h4>
+    </div>
+
+    <div class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarouselPointer" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarouselPointer" data-slide-to="1"></li>
+    </ol>
+                            <!-- main slider carousel items -->
+    <div class="carousel-inner list list-group panel-group accordion">
+       
+    </div>
+        <!-- main slider carousel nav controls --> 
+        <a class="carousel-control left" href="#" data-slide="prev"></a>
+        <a class="carousel-control right" href="#" data-slide="next"></a>
+    </div>
+</div>
+<script>
+
+$(function(){
+    var temp = new TempObj('energyProfiles-panel', 'profiles-panel-template');
+    temp.margin_top=80;
+    temp.margin_left=20;
+    temp.svgWidth=500;
+    temp.svgHeight=300;
+    temp.pageLocation;
+    
+
+    temp.fillOut = function(data){ 
+        var result = this.templatehtml.clone();
+
+        this.pageLocation = data.pageLocation;
+        result.find('.carousel.slide').attr('id', this.templateName + numberOfPanels);
+
+        // set data pointers for slider:
+        result.find('.carousel.slide .carousel-indicators li').attr('data-target', this.templateName + numberOfPanels);        
+        //
+        panelMap[this.templateName + numberOfPanels] = this;
+        numberOfPanels++;
+        this.consumption_types = data.consumption_types;
+
+
+        for (var index = this.consumption_types.length - 1; index >= 0; index--) {
+            //add instanceId:
+            this.consumption_types[index].instanceId = this.templateName + numberOfPanels + '';
+            this.consumption_types[index].instaceNumber =  numberOfPanels;
+            numberOfPanels++;
+            panelMap[this.consumption_types[index].instanceId] = this.consumption_types[index];
+            
+            var html;
+            if(this.consumption_types.length -1 == index)
+            {
+                html ='<div id="'+this.consumption_types[index].instanceId+'" class="item active"> <div class="panel-body horisontal-scrollpanel white-bg" style="height: 300px;"></div></div>';
+            }else{
+                html ='<div id="'+this.consumption_types[index].instanceId+'" class="item"> <div class="panel-body horisontal-scrollpanel" style="height: 300px;"> </div></div>';
+            }
+
+
+            result.find('.carousel-inner.list.list-group.panel-group.accordion')
+                    .append(html);
+            result.find('#'+this.consumption_types[index].instanceId).append('<div class="panel-footer"><div class="col-md-6 days-chart"><p>Distribution of days in profile</p></div><div class="col-md-6 profile-stats"></div></div>')
+
+
+            // formatting data:
+            var dsd2 = []; //<-- standard diviation1
+            var dsd3 = []; //<-- standard diviation2
+
+            var d1 = [];
+            this.consumption_types[index].max_x = 24;
+            this.consumption_types[index].min_x = 0;
+
+            //for the barchart at the bottom:
+            this.consumption_types[index].daysMin = 0;
+            this.consumption_types[index].daysMax = 0;
+            this.consumption_types[index].totalNumberOfDays = 0;
+            for (var i = this.consumption_types[index].days.length - 1; i >= 0; i--) {
+                this.consumption_types[index].daysMax = this.consumption_types[index].daysMax < this.consumption_types[index].days[i].occurens ? 
+                                                this.consumption_types[index].days[i].occurens : this.consumption_types[index].daysMax;
+                this.consumption_types[index].totalNumberOfDays += this.consumption_types[index].days[i].occurens;
+            };
+            //barchart end!
+
+
+            //get min and max of the profile chart and dataformatting:
+            this.consumption_types[index].min_y = 100;
+            this.consumption_types[index].max_y = 0;
+            for(i=0 ; i < 24; i++){ 
+                d1.push({"x": i, "y": this.consumption_types[index].mean[i]});
+                dsd2.push({"x": i, "y": this.consumption_types[index].mean[i] - this.consumption_types[index].sd[i]});
+                dsd3.push({"x": i, "y": this.consumption_types[index].mean[i] + this.consumption_types[index].sd[i]});
+                
+                //get min and max:
+                this.consumption_types[index].max_y = 
+                        (this.consumption_types[index].max_y < this.consumption_types[index].mean[i] + this.consumption_types[index].sd[i]) ? 
+                        this.consumption_types[index].mean[i] + this.consumption_types[index].sd[i] : this.consumption_types[index].max_y;
+                this.consumption_types[index].min_y = 
+                        (this.consumption_types[index].min_y > this.consumption_types[index].mean[i] - this.consumption_types[index].sd[i]) ? 
+                        this.consumption_types[index].mean[i] - this.consumption_types[index].sd[i] : this.consumption_types[index].min_y;
+            }
+            this.consumption_types[index].dataObject = d1;
+            this.consumption_types[index].sdDatamin = dsd2;
+            this.consumption_types[index].sdDatamax = dsd3;
+            
+            //this.consumption_types[index].profilesData = data;
+            //creating scale functions to map between x/y values and x/y pixel values on the svg:
+                     // domain() <-- defines the scale of the graph.
+                     // range()  <-- defines the dimensions of the svg image.
+            this.consumption_types[index].xScaleFunction = d3.scale.linear()
+                                                .domain([this.consumption_types[index].min_x,this.consumption_types[index].max_x])
+                                                .range([(this.margin_left/2), (this.svgWidth- (this.margin_left/2))]);
+            this.consumption_types[index].yScaleFunction = d3.scale.linear()
+                                                 .domain([this.consumption_types[index].max_y,this.consumption_types[index].min_y])
+                                                 .range([( this.margin_top/2),  this.svgHeight-( this.margin_top/2) ]);
+
+            //scales for footer barplot
+            this.consumption_types[index].xFooterScaleFunction = d3.scale.ordinal()
+                                                .rangeRoundBands([this.margin_left, (this.svgWidth/2)-this.margin_left], .1)
+                                                .domain(['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']);
+
+            this.consumption_types[index].yFooterScaleFunction = d3.scale.linear()
+                                                .domain([this.consumption_types[index].daysMin,this.consumption_types[index].daysMax])
+                                                .range([(this.svgHeight/2) - (this.margin_top/4), (this.margin_top/4) ]);
+
+            
+            //defining how a line is drawn for mean: 
+            this.consumption_types[index].lineFunction = d3.svg.line()
+                    .interpolate("linear") // type of line... what to fill in between x/y points
+                    .x(function(d) { return this.xScaleFunction(d.x) ;}) // the mapping from value to px coordinates
+                    .y(function(d) { return this.yScaleFunction(d.y); }); 
+
+             //defining how the area under the graph looks like:
+            this.consumption_types[index].areaFunction = d3.svg.area()
+                    .interpolate("linear") // defining the border interpolation between points
+                    .x(function(d) { return this.xScaleFunction(d.x); }) // mapping
+                    .y1(function(d) { return this.yScaleFunction(d.y); })
+                    .y0(this.consumption_types[index].yScaleFunction(this.consumption_types[index].min_y));
+
+
+
+            // setting up the axises for the graph:
+            this.consumption_types[index].xAxis = d3.svg.axis().scale(this.consumption_types[index].xScaleFunction).orient("bottom");
+            this.consumption_types[index].yAxis = d3.svg.axis().scale(this.consumption_types[index].yScaleFunction).orient("right"); 
+            //footer:
+            this.consumption_types[index].xAxisFooter = d3.svg.axis().scale(this.consumption_types[index].xFooterScaleFunction).orient('bottom');
+            this.consumption_types[index].yAxisFooter =d3.svg.axis().scale(this.consumption_types[index].yFooterScaleFunction).orient('left');
+
+            this.consumption_types[index].tip = d3.tip()
+                        .attr('class', 'd3-tip')
+                        .offset([-10, 0])
+                        .html(function(d) {
+                          return "<strong>Days:</strong> <span style='color:red'>" + d.occurens + "</span>";
+                        });
+
+        }
+        return result;
+    }
+     //defining method for drawing the graph:
+    temp.draw = function() {
+        var curCon;
+        for (var drawLoop = this.consumption_types.length - 1; drawLoop >= 0; drawLoop--) {
+             curCon = this.consumption_types[drawLoop];       
+            this.consumption_types[drawLoop].svgBody.select("g.x.axis").call(this.consumption_types[drawLoop].xAxis);
+            this.consumption_types[drawLoop].svgBody.select("g.y.axis").call(this.consumption_types[drawLoop].yAxis);
+            curCon.svgBody.select("path.area").attr("d",  curCon.areaFunction(curCon.dataObject));
+            curCon.svgBody.select("path.line").attr("d",  curCon.lineFunction(curCon.dataObject));
+            curCon.svgBody.select("path.sdminline").attr("d",  curCon.lineFunction(curCon.sdDatamin));
+            curCon.svgBody.select("path.sdmaxline").attr("d",  curCon.lineFunction(curCon.sdDatamax));
+            //this.consumption_types[drawLoop].svgFooter.select()
+        }
+    };
+
+    temp.initialize = function(){
+        
+        // Panel slider items:
+        this.initializePanelBody();
+
+        this.initializePanelFooter();
+
+        //draw the damn thing ;)
+        this.draw();
+    }
+
+
+    temp.initializePanelBody = function(){
+        
+        var carouselId = 2000000;
+        for (var index = this.consumption_types.length - 1; index >= 0; index--) {
+
+        carouselId = carouselId < this.consumption_types[index].instaceNumber ? carouselId :this.consumption_types[index].instaceNumber ;
+        
+        //get svg element:
+        var svg = d3.select("#"+this.consumption_types[index].instanceId + ' .panel-body')
+                        .append("svg:svg")
+                        .attr("width", this.svgWidth)
+                        .attr("height", this.svgHeight);
+
+
+        this.consumption_types[index].svgBody=svg;
+
+        svg.append("svg:clipPath")
+            .attr("id", "clip")
+            .append("svg:rect")
+            .attr("x", this.margin_left/2)
+            .attr("y", 0)
+            .attr("width", this.svgWidth - this.margin_left)
+            .attr("height", this.svgHeight );
+
+        svg.append('text').attr('class', 'numberOfDays')
+                          .attr('x', 0)
+                          .attr('y', 0)
+                          .attr('font-size','16px')
+                          .attr("transform", "translate(0," + (this.margin_top/4) + ")") 
+                          .text('Days in profile: ' + this.consumption_types[index].totalNumberOfDays);
+
+
+
+        //creating a group element:
+        var graph = svg.append("g");
+
+        //creating the graph line:
+        graph.append('path')//.attr("d", this.consumption_types[index].lineFunction(this.consumption_types[index].dataObject))
+                                    .attr("stroke", "white")
+                                    .attr("stroke-width", 1)
+                                    .attr("fill", "none")
+                                    .attr("class", "line");
+
+        //painting for the area under the graph
+        graph.append('path')//.attr("d", this.consumption_types[index].areaFunction(this.consumption_types[index].dataObject))
+                            .attr("clip-path", "url(#clip)")
+                            .attr("class","area")
+                            .style("fill", "url(#gradient)");
+
+        //painting sd-min line:
+        graph.append('path')//.attr("d", this.consumption_types[index].lineFunction(this.consumption_types[index].dataObject))
+                                    .attr("stroke", "blue")
+                                    .style("stroke-dasharray", ("3, 3"))
+                                    .attr("stroke-width", 1)
+                                    .attr("fill", "none")
+                                    .attr("class", "sdminline");
+
+        //painting sd-max line:
+        graph.append('path')//.attr("d", this.consumption_types[index].lineFunction(this.consumption_types[index].dataObject))
+                                    .attr("stroke", "blue")
+                                    .style("stroke-dasharray", ("3, 3"))
+                                    .attr("stroke-width", 1)
+                                    .attr("fill", "none")
+                                    .attr("class", "sdmaxline");
+
+        //create axises:
+        svg.append("g").attr('class','.x .axis')
+                        .attr("transform", "translate(0," + (this.svgHeight - (this.margin_top/2)) + ")") //moveaxis to bottom
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.consumption_types[index].xAxis);
+
+        svg.append("g").attr('class','.y .axis')
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.consumption_types[index].yAxis);
+
+        // Bind the data to our path elements.
+        svg.select("path.line").data([this.consumption_types[index].dataObject]);
+        svg.select("path.area").data([this.consumption_types[index].dataObject]);
+        svg.select("path.sdminline").data([this.consumption_types[index].sdDatamin]);
+        svg.select("path.sdmaxline").data([this.consumption_types[index].sdDatamax]);
+
+        }
+
+        //get slider:
+        carouselId--;
+        carouselId = '#' + this.templateName + carouselId;
+
+        $(carouselId + ' .carousel-control').attr('href', carouselId);
+        //init and control the building relation panel:
+        $(carouselId).carousel({
+            interval: 4000
+        });
+    
+
+
+            //shift active element:
+          var pLocation = this.pageLocation;
+          document.addEventListener("consumptiontypeChanged", function (e) {
+                var activate = window.consumptiontypes.indexOf(window.activeConsumption);
+                $('.'+pLocation).find('.profiles-panel-template').removeClass('active');
+                $('.'+pLocation).find('.profiles-panel-template').eq(activate).addClass('active');
+          }, false);
+    
+    };
+
+    temp.initializePanelFooter = function(){
+        var outerId = 200000;
+        for (var i = this.consumption_types.length - 1; i >= 0; i--) {
+            outerId = outerId < this.consumption_types[i].instaceNumber ? outerId : this.consumption_types[i].instaceNumber; 
+        };
+
+        outerId--;
+        outerId = '#' + this.templateName + outerId;
+
+        this.svgFooter= [];
+        for (var index = this.consumption_types.length - 1; index >= 0; index--) {
+            
+            //setup profile stats in footer column right div:     
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')            
+                            .append('div:row')
+                            .append('p').text('Average use: ' + this.consumption_types[index].feature_mean);            //setup left column div:
+
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')
+                            .append('div:row')
+                            .append('p').text('Hours above mean: ' + this.consumption_types[index].feature_hours_above_mean);
+            
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')
+                            .append('div:row')
+                            .append('p').text('Peakload: ' + this.consumption_types[index].feature_peak);
+
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')
+                            .append('div:row')
+                            .append('p').text('Time of peak: ' + this.consumption_types[index].feature_time_of_day);
+            
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')
+                            .append('div:row')
+                            .append('p').text('Standby usage: ' + this.consumption_types[index].feature_min);
+
+            d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .profile-stats')
+                            .append('div:row')
+                            .append('p').text('Mean over max: ' + this.consumption_types[index].feature_mean_over_max);
+
+
+
+            var svg = d3.select("#"+this.consumption_types[index].instanceId + ' .panel-footer .days-chart')
+                        .append("svg:svg")
+                        .attr('class', 'profileFooter ' + this.consumption_types[index].instanceId)
+                        .attr("width", this.svgWidth/2)
+                        .attr("height", this.svgHeight/2)
+                        .append('g');
+   
+            this.svgFooter[index]=svg;
+
+
+            svg.append("g")
+                        .attr("class", "x axis")
+                        .attr("transform", "translate(0," + ((this.svgHeight/2) -(this.margin_top/2))  + ")")
+                        .call(this.consumption_types[index].xAxisFooter);
+
+            svg.append("g")
+                    .attr("class", "y axis")
+                    .call(this.consumption_types[index].yAxisFooter)
+                    .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Occurrences");
+
+            var ttip = this.consumption_types[index].tip;
+            svg.call(ttip);
+
+            var xScale = this.consumption_types[index].xFooterScaleFunction;
+            var yScale = this.consumption_types[index].yFooterScaleFunction;
+
+            var margin_top  =    this.margin_top;
+            var height = (this.svgHeight/2) - (margin_top/2);
+            svg.selectAll(".bar")
+                    .data(this.consumption_types[index].days)
+                    .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function(d) { return xScale(d.letter); })
+                    .attr("width", xScale.rangeBand())
+                    .attr("y", function(d) { return yScale(d.occurens); })
+                    .attr("height", function(d) { return height - yScale(d.occurens); })
+                    .on('mouseover', ttip.show)
+                    .on('mouseout', ttip.hide);
+        }
+
+    };
+    
+    
+    customAddTemplate(temp);
+});  
+
+</script>
+<!--
+-----------------------------------------------------------------------------
+--        Seasonality PANEL                                                  --
+----------------------------------------------------------------------------
+-->
+<div class="panel panel-default toggle panelMove panelClose panelRefresh seasonality-panel-template" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class="icon-home2"></i>Building Seasonality</h4>
+    </div>
+    <div class="panel-body white-bg">
+    
+    </div>
+    <div class="panel-footer">
+        
+    </div>
+</div>
+
+<script>
+$(function(){
+    var temp = new TempObj('seasonality-panel', 'seasonality-panel-template');
+    temp.margin_top=50;
+    temp.margin_left=20;
+    temp.svgWidth=500;
+    temp.svgHeight=300;
+
+    temp.fillOut = function(data){ 
+      var result = this.templatehtml.clone();
+      if(data == null) return result;
+
+          //add instanceId:
+        this.pageLocation = data.pageLocation;
+        this.instanceId = this.templateName + numberOfPanels;
+        numberOfPanels++;
+        panelMap[this.instanceId] = this;
+        result.find('.panel-body').attr('id', this.instanceId);
+
+        // formatting data:
+        var d1 = [];
+        this.max_x = 0;
+        this.max_y = 0;
+        this.min_x = 100;
+        this.min_y = 100;
+        for(i=0 ; i < data.length; i++){
+            d1.push({"x": new Date(window.epochTime).addDays(i), "y": data[i]});
+            this.max_y = this.max_y < data[i] ? data[i] : this.max_y;
+            this.min_y = this.min_y > data[i] ? data[i] : this.min_y;
+        }
+        this.max_x = d1[0].x; 
+        this.min_x = d1[data.length -1].x;
+
+        this.dataObject = d1;
+        
+
+        //creating scale functions to map between x/y values and x/y pixel values on the svg:
+                 // domain() <-- defines the scale of the graph.
+                 // range()  <-- defines the dimensions of the svg image.
+        this.xScaleFunction = d3.time.scale().domain([this.max_x, this.min_x]).range([0, this.svgWidth - this.margin_left]);
+        this.yScaleFunction = d3.scale.linear().domain([this.max_y,this.min_y]).range([(this.margin_top/2), this.svgHeight - (this.margin_top/2) ]);
+
+        //defining how a line is drawn:
+        this.lineFunction = d3.svg.line()
+                .interpolate("linear") // type of line... what to fill in between x/y points
+                .x(function(d) { return this.xScaleFunction(d.x) ;}) // the mapping from value to px coordinates
+                .y(function(d) { return this.yScaleFunction(d.y); }); 
+
+        //defining how the area under the graph looks like:
+        this.areaFunction = d3.svg.area()
+                .interpolate("linear") // defining the border interpolation between points
+                .x(function(d) {  return this.xScaleFunction(d.x); }) // mapping
+                .y1(function(d) { return this.yScaleFunction(d.y); })
+                .y0(this.yScaleFunction(this.min_y));
+
+        // setting up the axises for the graph:
+        this.xAxis = d3.svg.axis().scale(this.xScaleFunction).orient("bottom");
+        this.yAxis = d3.svg.axis().scale(this.yScaleFunction).orient("right"); 
+
+        //defining method for drawing the graph:
+        this.draw = function() {
+          this.svg.select("g.x.axis").call(this.xAxis);
+          this.svg.select("g.y.axis").call(this.yAxis);
+
+          this.svg.select("path.area").attr("d",  this.areaFunction(this.dataObject));
+          this.svg.select("path.line").attr("d",  this.lineFunction(this.dataObject));
+        }
+
+      return result;   
+    }
+
+    temp.initialize = function(){
+        
+        //get svg element:
+        var svg = d3.select("#"+this.instanceId)
+                        .append("svg:svg")
+                        .attr("width", this.svgWidth)
+                        .attr("height", this.svgHeight);
+        this.svg=svg;
+
+        
+        svg.append("svg:clipPath")
+            .attr("id", "clip")
+            .append("svg:rect")
+            .attr("x", this.margin_left/2)
+            .attr("y", this.margin_top/2)
+            .attr("width", this.svgWidth - this.margin_left)
+            .attr("height", this.svgHeight - this.margin_top);
+
+
+        //creating a group element:
+        var graph = svg.append("g");
+
+        //creating the graph line:
+        graph.append('path')//.attr("d", this.lineFunction(this.dataObject))
+                                    .attr("stroke", "white")
+                                    .attr("stroke-width", 1)
+                                    .attr("fill", "none")
+                                    .attr("class", "line");
+
+        //painting for the area under the graph
+        graph.append('path')//.attr("d", this.areaFunction(this.dataObject))
+                            .attr("clip-path", "url(#clip)")
+                            .attr("class","area")
+                            .style("fill", "url(#gradient)");
+
+        //rectangle for creating the scrolable view 
+        svg.append("svg:rect")
+                    .attr("class", "pane")
+                    .attr("width", this.svgWidth)
+                    .attr("height", this.svgHeight)
+                    .call(d3.behavior.zoom().on("zoom", consumptionsZoom));
+
+
+        //create axises:
+        svg.append("g").attr('class','.x .axis')
+                        .attr("transform", "translate(0," + (this.svgHeight - (this.margin_top/2)) + ")") //moveaxis to bottom
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.xAxis);
+
+        svg.append("g").attr('class','.y .axis')
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.yAxis);
+
+        // Bind the data to our path elements.
+        this.svg.select("path.area").data([this.dataObject]);
+        this.svg.select("path.line").data([this.dataObject]);
+        
+        //draw the damn thing ;)
+        this.draw(svg);
+
+
+                    //shift active element:
+        var pLocation = this.pageLocation;
+        document.addEventListener("consumptiontypeChanged", function (e) {
+              var activate = window.consumptiontypes.indexOf(window.activeConsumption);
+              $('.'+pLocation).find('.seasonality-panel-template').removeClass('active');
+              $('.'+pLocation).find('.seasonality-panel-template').eq(activate).addClass('active');
+        }, false);
+    }
+
+    customAddTemplate(temp);
+});
+    
+</script>
+
+<!--
+----------------------------------------------------------------------------------------
+--                       ALARMS PANEL                                                 --
+----------------------------------------------------------------------------------------
+
+-->
+<div class="panel  panel-teal toggle panelMove panelClose panelRefresh alarm-panel-template" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class="icon-home2"></i>Building Alarms</h4>
+    </div>
+    <div class="panel-body">
+         <div id="INSERTALISTIDHEREDOITNOOOW">
+            <div class="list list-group panel-group accordion">
+                                        
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(function(){
+    var temp = new TempObj('alarm-panel', 'alarm-panel-template');
+
+    temp.fillOut = function(data){
+        var result = this.templatehtml.clone();
+        result.find('#INSERTALISTIDHEREDOITNOOOW').attr('id', 'alarm-panel'+ numberOfPanels);
+        panelMap['alarm-panel'+ numberOfPanels] = result;
+        numberOfPanels++;
+        if(data == null || data == undefined) return result; 
+
+
+
+
+        return result;
+    }
+
+    temp.initialize = function(){
+
+    }
+    customAddTemplate(temp);
+});
+</script>
+
+
+<!--
+-------------------------------------------------------------------------------------------
+--              Alarms Card Item                                                        --
+------------------------------------------------------------------------------------------
+-->
+<div id="alarm-item" class="panel panel-default toggle alarm-item-template item" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class="icon-bell"></i><h4 class="building_id">name</h4></h4>
+        <h3 class="oddfeatures">404</h3>
+    </div>
+    <div class="panel-body white-bg minimized">  
+        <div class="svgWrapper col-lg-11 col-md-11"></div>
+        <div class="slider col-lg-1 col-md-1">
+            <div class="d3-slider d3-slider-vertical" style="height: 200px;">
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer minimized">
+        <div class="wrapper">
+            <div class="col-lg-6 col-md-6">
+                <div class="row"><h5>Raised at: </h5><h6 class="raiseddate"></h6></div>
+                <div class="row"><h5>Outlier from: </h5><h6 class="odddate"></h6></div>
+                <div class="row"><h5>Handled at: </h5><h6 class="handleddate"></h6></div>
+                <div class="row"><h5>Likelihood of Observation: </h5><h6 class="likelihood"></h6></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="row font-size11"><nobr><input class="check-box" type="checkbox" ><label>1. order SD</label></nobr></div>
+                <div class="row font-size11"><nobr><input class="check-box" type="checkbox" ><label>2. order SD</label></nobr></div>
+                <div class="row feature-description"><h5>Description</h5><h7 class="font-size13"></h7></div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var feature_to_text = ['Hour 0','Hour 1','Hour 2','Hour 3','Hour 4',
+                        'Hour 5','Hour 6','Hour 7','Hour 8','Hour 9',
+                        'Hour 10','Hour 11','Hour 12','Hour 13',
+                        'Hour 14','Hour 15','Hour 16','Hour 17',
+                        'Hour 18','Hour 19','Hour 20','Hour 21','Hour 22',
+                        'Hour 23',
+                        'The mean differs from average.',
+                        'The peakload of the building differs from the building profiles.',
+                        'The standby usage differs from the normal standby usage. This could indicate a energy waste.',
+                        'The average nightly usage differs from the normal.',
+                        'The average mornngly usage differs from the normal.',
+                        'The average afternoonly usage differs from the normal.',
+                        'The average eveningly usage differs from the normal.',
+                        'The mean over max values differs from the normal.',
+                        'The standby usage over the mean differs from the normal.',
+                        'The nightly usage over the dayly usage differs from the normal.',
+                        'Time dayly max.',
+                        'Hour above mean.',
+                        'Number of peaks.',
+                        'Day of the week.'
+                        ];
+
+    function AlarmItem(alarm_info){
+    this.alarm_id        = alarm_info['alarm_id'];    
+    this.building_id        = alarm_info['building_id'];
+    this.consumptiontype    = alarm_info['consumptiontype'];
+    this.raiseddate         = alarm_info['raiseddate'];
+    this.handleddate        = alarm_info['handleddate'] === undefined ? alarm_info['handleddate'] : 'Not handled.!';
+    this.odddate            = alarm_info['odddate'];
+    this.expectedvalues     = alarm_info['expectedvalues'];
+    this.observedvalues     = alarm_info['observedvalues'];
+    this.sds                = alarm_info['sds'];
+    this.oddfeatures        = alarm_info['oddfeatures'];
+    this.likelihood         = alarm_info['likelihood'];
+    this.margin_top=40;
+    this.margin_left=10;
+    this.svgWidth=420;
+    this.svgHeight=200;
+    this.domObj;
+    this.isHandled = false;
+
+    this.initCheckboxes = function(item){
+        var element = item;
+        //set checkboxes:
+        $(element).find('input').attr('checked', true);
+        //add event listeners to checkboxes:
+        $(element).find('input')[0]
+            .addEventListener ("CheckboxStateChange", 
+                function(e) {
+                    if(!e.target.checked){
+                        d3.select(element).select('path.sd3line').attr('class', 'sd3line');
+                        d3.select(element).select('path.sd2line').attr('class', 'sd2line');
+                    }else{
+                        d3.select(element).select('path.sd3line').attr('class', 'sd3line active');
+                        d3.select(element).select('path.sd2line').attr('class', 'sd2line active');
+                    }
+                }, false);
+        $(element).find('input')[1]
+            .addEventListener ("CheckboxStateChange", 
+                function(e){
+                    if(!e.target.checked){
+                        d3.select(element).select('path.sd4line').attr('class', 'sd4line');
+                        d3.select(element).select('path.sd1line').attr('class', 'sd1line white');
+                    }else{
+                        d3.select(element).select('path.sd4line').attr('class', 'sd4line active');
+                        d3.select(element).select('path.sd1line').attr('class', 'sd1line active');
+                    }
+                }, false);
+        //end check boxes!
+    }
+
+    this.initPanelControls = function(item) {
+        var element = item;
+        //define appereance based on consumptiontype:
+        if(this.consumptiontype == 1){
+            $(element).find('.panel-heading, .panel-footer').addClass('red-bg');
+        }else if(this.consumptiontype == 8){
+            $(element).find('.panel-heading, .panel-footer').addClass('blue-bg');
+        }else{ 
+           $(element).find('.panel-heading, .panel-footer').addClass('yellow-bg');
+        }
+        //define On- listener for expanding and minizing:
+        $(element).find('.panel-heading').click(function(e){
+
+            var body = $(element).find(' .panel-body , .panel-footer');
+            if(body.hasClass('minimized')){
+                body.removeClass('minimized');
+            }else{
+                body.addClass('minimized');
+            }
+        });
+
+        //Set negative color if the alarm has not been handeled! 
+        if(!this.isHandled){
+            $(element).find('.handleddate').addClass('red-color');
+        }
+
+        //add description to the element descriping the feature which is odd.
+        for (var i = this.oddfeatures.length - 1; i >= 0; i--) {
+            $(element).find('.feature-description .font-size13').append(feature_to_text[this.oddfeatures[i]-1]);
+        };
+    }
+
+    //this.initScaleSlider = function(item){
+//
+    //}
+
+    this.initAlarmItem = function(containing_listObj){
+        this.isHandled= this.handleddate == 'Not handled.!' ? false : true;
+
+        element =containing_listObj.get('alarm_id', this.alarm_id)[0];
+
+        element = element.elm;
+        this.domObj = element;
+        if(element == undefined)
+            return;
+
+        this.initPanelControls(element);
+
+        this.initCheckboxes(element);
+
+        this.initPlot();
+    };
+
+    this.initPlot = function(){
+
+        //formatting data:
+        var dExpected = [];
+        var dstandard1 = []; //-2sd
+        var dstandard2 = []; //-1sd
+        var dstandard3 = []; //+1sd
+        var dstandard4 = []; //+2sd
+
+        var dOdd = [];
+
+        //get min and max of the profile chart and dataformatting:
+        this.min_x = 0;
+        this.max_x = 24;
+        this.min_y = 100000;
+        this.max_y = 0;
+        for(i=0 ; i < 24; i++){ 
+                dExpected.push({"x": i, "y": this.expectedvalues[i]});
+                
+                dstandard1.push({"x": i, "y": this.expectedvalues[i] - (2*this.sds[i])});
+                dstandard2.push({"x": i, "y": this.expectedvalues[i] - (this.sds[i])});
+                dstandard3.push({"x": i, "y": this.expectedvalues[i] + (this.sds[i])});
+                dstandard4.push({"x": i, "y": this.expectedvalues[i] + (2*this.sds[i])});
+                
+                dOdd.push({"x": i, "y": this.observedvalues[i]});
+                
+                //get min and max:
+                this.max_y = this.max_y < this.observedvalues[i].y ? this.observedvalues[i] : this.max_y;
+                this.max_y = this.max_y < this.expectedvalues[i]+(2*this.sds[i]) ? this.expectedvalues[i]+(2*this.sds[i]) : this.max_y;
+                this.min_y = this.min_y > this.observedvalues[i] ? this.observedvalues[i] : this.min_y;
+                this.min_y = this.min_y > this.expectedvalues[i]-(2*this.sds[i]) ? this.expectedvalues[i]-(2*this.sds[i]) : this.min_y;
+            };
+        this.expectedvaluesData = dExpected;
+        this.observedvaluesData = dOdd;
+        
+        //this.consumption_types[index].profilesData = data;
+        //creating scale functions to map between x/y values and x/y pixel values on the svg:
+                 // domain() <-- defines the scale of the graph.
+                 // range()  <-- defines the dimensions of the svg image.
+        this.xScaleFunction = d3.scale.linear()
+                                            .domain([this.min_x,this.max_x])
+                                            .range([(this.margin_left/2), (this.svgWidth- (this.margin_left/2))]);
+        this.yScaleFunction = d3.scale.linear()
+                                             .domain([this.max_y,this.min_y])
+                                             .range([( this.margin_top/2),  this.svgHeight-( this.margin_top/2) ]);
+
+
+        //defining how a line is drawn:
+        this.lineFunction = d3.svg.line()
+                .interpolate("linear") // type of line... what to fill in between x/y points
+                .x(function(d) { return this.xScaleFunction(d.x) ;}) // the mapping from value to px coordinates
+                .y(function(d) { return this.yScaleFunction(d.y); }); 
+
+
+        //defining how the area under the graph looks like:
+        this.areaFunction = d3.svg.area()
+                .interpolate("linear") // defining the border interpolation between points
+                .x(function(d) {  return this.xScaleFunction(d.x); }) // mapping
+                .y1(function(d) { return this.yScaleFunction(d.y); })
+                .y0(this.yScaleFunction(this.min_y));
+
+
+        // setting up the axises for the graph:
+        this.xAxis = d3.svg.axis().scale(this.xScaleFunction).orient("bottom");
+        this.yAxis = d3.svg.axis().scale(this.yScaleFunction).orient("right"); 
+
+        //defining method for drawing the graph:
+        this.draw = function(svg) {
+          svg.select("g.x.axis").call(this.xAxis);
+          svg.select("g.y.axis").call(this.yAxis);
+
+          svg.select("path.sd4line").attr("d",  this.areaFunction(dstandard4)); //+2
+          svg.select("path.sd3line").attr("d",  this.areaFunction(dstandard3)); //1
+          svg.select("path.sd2line").attr("d",  this.areaFunction(this.expectedvaluesData)); //0
+          svg.select("path.sd1line").attr("d",  this.areaFunction(dstandard2)); //-1
+          svg.select("path.sd0line").attr("d",  this.areaFunction(dstandard1)); //-2
+
+          svg.select("path.eline").attr("d",  this.lineFunction(this.expectedvaluesData));
+          svg.select("path.oline").attr("d",  this.lineFunction(this.observedvaluesData));
+        }
+        
+        //---------------------------------------------------------
+        //                      init structure
+        //---------------------------------------------------------
+        
+        //add svg & elements to the graph:
+        
+        //get svg element:
+        var svg = d3.select(this.domObj).select('.svgWrapper')
+                        .append("svg:svg")
+                        .attr("width", this.svgWidth)
+                        .attr("height", this.svgHeight);
+        
+
+        //defining zoom function:
+        var zoom = d3.behavior.zoom().center([this.svgWidth / 2, this.svgHeight / 2])
+                    .scaleExtent([1, 10])
+                    .on("zoom", zoomed);
+
+        
+        //add group element for zooming
+        svg = svg.append("g")
+                .attr("transform", "translate(" + this.margin_left/2 + "," + this.margin_left/2 + ")")
+                .call(zoom);
+
+
+        //add element which holds the view point on the graph
+        var rect = svg.append("rect")
+                    .attr("width", this.svgWidth)
+                    .attr("height", this.svgHeight)
+                    .style("fill", "white")
+                    .style("pointer-events", "all");
+
+
+
+        //init vertical slider:
+        var slider = d3.select(this.domObj).select('.d3-slider.d3-slider')
+                            .call(d3.slider()
+                                .value(0)
+                                .max(10)
+                                .min(0)
+                                .orientation("vertical")
+                                .on("slide", 
+                                    function(event, ui){
+                                            zoomWithSlider(1 +ui/10, event); 
+                                            }));
+
+        //add grouping element.... this element will hold all zoomable objects:
+        var container = svg.append("g");
+        
+        //---------------------------------------------------------
+        //                      structure End!
+        //---------------------------------------------------------
+        
+
+        //creating a group element:
+        var graph = container.append("g");
+
+        
+        //creating the graph line for the standard diviations:
+        graph.append('path')
+                            .attr("stroke", "none")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "sd4line active");
+        graph.append('path')
+                            .attr("stroke", "none")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "sd3line active");
+        graph.append('path')
+                            .attr("stroke", "none")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "sd2line active");
+        graph.append('path')
+                            .attr("stroke", "none")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "sd1line active"); 
+        graph.append('path')
+                            .attr("stroke", "none")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "sd0line");//note the impotanse of the order of standard diviation in order to paint them!
+        //diviation end!
+
+        //creating the graph line for the expected values:
+        graph.append('path')
+                            .attr("stroke", "white")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "eline");
+
+        //creating the graph line for the odd values:
+        graph.append('path')
+                            .attr("stroke", "white")
+                            .attr("stroke-width", 1)
+                            .attr("fill", "none")
+                            .attr("class", "oline");
+
+        //create axises:
+        container.append("g").attr('class','.x .axis')
+                        .attr("transform", "translate(0," + (this.svgHeight - (this.margin_top/2)) + ")") //moveaxis to bottom
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.xAxis);
+
+        container.append("g").attr('class','.y .axis')
+                        .style({'stroke': 'black', 
+                                'fill':'none', 
+                                'shape-rendering': 'crispEdges'})
+                        .call(this.yAxis);
+
+        // Bind the data to our path elements.
+        svg.select("path.sd4line").data([dstandard4]);
+        svg.select("path.sd3line").data([dstandard3]);
+        svg.select("path.sd2line").data([this.expectedvaluesData]);
+        svg.select("path.sd1line").data([dstandard2]);
+        svg.select("path.sd0line").data([dstandard1]);
+
+        svg.select("path.eline").data([this.expectedvaluesData]);
+        svg.select("path.oline").data([this.observedvaluesData]);
+        
+        //draw the damn thing ;)
+        this.draw(svg);
+
+
+        function zoomed() {
+        
+          container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        
+        }
+
+        function zoomWithSlider(scale, event) {
+        var tempCon = d3.select(event.target.parentElement.parentElement);
+        if(!tempCon) return;
+        var svg = tempCon.select('svg');
+        var container = svg.select("g");
+        var h = svg.attr("height"), w = svg.attr("width");
+        
+        // Note: works only on the <g> element and not on the <svg> element
+    // which is a common mistake
+        if(scale == undefined){ console.log('undef'); scale =1;}
+        
+
+        container.attr("transform",
+                "translate(" + w/2 + ", " + h/2 + ") " +
+                "scale(" + scale + ") " +
+                "translate(" + (-w/2) + ", " + (-h/2) + ")");
+        }
+    }
+}
+</script>
+
+<!--
+-------------------------------------------------------------------------------------------
+--              feature Card Item                                                        --
+------------------------------------------------------------------------------------------
+-->
+
+<div id="feature-item" class="row feature-item">
+    <div class="col-md-2"><input class="check-box" type="checkbox"></div>
+    <div class="col-md-9 feature_name"></div> 
+</div>
+
+
+
+<script>
+var feature_card_options = {
+    valueNames: ['feature_id',
+                'feature_name'
+                ],
+    item:'feature-item'
+};
+
+function FeatureItem(feature_id, feature_name){
+    //info init:
+    this.feature_id = feature_id; 
+    this.feature_name = feature_name;
+    this.isChecked = false;
+    //this.onFeatureClicked = new CustomEvent("onFeatureClicked", {"detail": this}); 
+
+
+    this.initFeatureItem = function(containing_listObj){
+        
+        var element = containing_listObj.get('feature_id', this.feature_id)[0];
+
+        elementCheckbox = $(element.elm).find('input');
+        
+        var listObj = containing_listObj;
+//        var eventItem = this.onFeatureClicked;
+        elementCheckbox.click(function(e){
+
+            if(element._values.isChecked) element._values.isChecked= false;
+            else element._values.isChecked= true;
+            
+            document.dispatchEvent(new CustomEvent("onFeatureClicked", {"detail": element._values}));
+        });
+
+    }
+}
+</script>
+
+
+<!--
+-------------------------------------------------------------------------------------------
+--            building-type Card Item                                                   --
+------------------------------------------------------------------------------------------
+-->
+<div id="type-item">
+    <div class="tile gray-spr mini">
+        <div class="tile-content">
+                <div class="name"></div>
+        </div>
+    </div>
+</div>
+<script>
+
+var type_card_options = {
+            valueNames: ['name',
+                         'super_type',
+                         'item_id' 
+                        ],
+            page: 15,
+            plugins: [
+                 ListPagination({})
+                ],
+            item:'type-item'
+            };
+
+
+function TypeItem(type_name, super_type, item_id, item_type){
+    //info init:
+    this.name = type_name; 
+    this.super_type = super_type;
+    this.item_id = item_id;
+    this.clicked = false;
+    this.item_type = item_type; // 0 = building subtype || 1 = building category || 2 = building 
+
+    this.initTypeItem = function(containing_listObj){
+
+        var element = containing_listObj.get('name', this.name)[0].elm;
+
+        element = $(element);
+        
+        var listObj = containing_listObj;
+        element.click(function(e){
+            var tile = $(e.target).parent().parent();
+
+            var objectT = listObj.get('name', $(e.target).text());
+            if(objectT[0] == undefined)
+                return;
+
+            if(tile.hasClass('gray-spr')) {
+                tile.removeClass('gray-spr');
+                tile.addClass('teal');
+                objectT[0]._values.clicked = true;
+            }else{
+                tile.removeClass('teal');
+                tile.addClass('gray-spr');
+                objectT[0]._values.clicked = false;
+            };
+
+            document.dispatchEvent(new CustomEvent("buildingtype_clicked", {"detail": objectT}));
+        });
+    }
+    this.setClasses = function(containing_listObj){
+         var element = containing_listObj.get('name', this.name)[0].elm;
+
+        var tile = $(element + '.tile');
+
+            if(tile.hasClass('gray-spr')) {
+                tile.removeClass('gray-spr');
+                tile.addClass('teal');
+                this.clicked = true;
+            }else{
+                tile.removeClass('teal');
+                tile.addClass('gray-spr');
+                this.clicked = false;
+            };
+    }    
+}
+
+</script>
+
+<!--
+-------------------------------------------------------------------------------------------
+--             graph-legend Card Item                                                   --
+------------------------------------------------------------------------------------------
+-->
+
+<div id="graph-legend-item" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="tile">
+        <div class="tile-content">
+                <div class="name"></div>
+        </div>
+    </div>
+</div>
+<script>
+var tileColors = ['red', 'blue','green', 'teal', 'orange', 'gray-spr', 'purple', 'pink', 'lime', 'magenta', 'brown', 'dark'];
+var numberOfColors = 13;
+
+
+var legend_card_options = {
+            valueNames: ['name',
+                         'super_type',
+                         'item_id' 
+                        ],
+            item:'graph-legend-item'
+            };
+
+function LegendItem(type_name, super_type, item_id, itemNumber, item_type){
+    //info init:
+    this.name = type_name; 
+    this.super_type = super_type;
+    this.item_id = item_id;
+    this.itemNumber = itemNumber;
+    this.graphitems =[];
+    this.itemColor;
+    this.item_type = item_type; // 0 = building subtype || 1 = building category || 2 = building 
+    this.type_data = [];
+
+    this.setColor = function(containing_listObj){
+        var item = containing_listObj.get('item_id', this.item_id);
+        item = item[0];
+        item._values.itemColor = tileColors[this.itemNumber % numberOfColors];
+
+        $(item.elm).find('.tile').addClass(item._values.itemColor);
+    }
+
+}
+
+</script>
+
+<!--
+-------------------------------------------------------------------------------------------
+--              summerized statistics panel                                             --
+------------------------------------------------------------------------------------------
+-->
+<div class="panel panel-default summerized-panel-template" style="position: relative; opacity: 1; left: 0px; top: 0px;">
+    <div class="panel-heading">
+        <h4><i class=" icon-stats-bars2"></i>Summarized Statistics</h4>
+    </div>
+    <div class="panel-body">
+         <div class="list-group panel-group"></div>
+    </div>
+</div>
+<script>
+$(function(){
+    var temp = new TempObj('summerized-panel', 'summerized-panel-template');
+    temp.pageLocation;
+
+    temp.fillOut = function(data){
+        var result = this.templatehtml.clone();
+        
+        if(data == null || data == undefined) return result; 
+
+        this.pageLocation = data.pageLocation;
+
+        for (var i = 0; i < data.length; i++) {
+            var featureEntry = data[i].feature;
+            var dataEntry    = data[i].data == null ? '-' : data[i].data;
+
+            result.find('.list-group.panel-group')
+                .append(
+                    '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"> '+
+                        '<div class="tile tile-small gray-spr">' +
+                            '<div class="tile-content">'+
+                                '<h3>' + featureEntry + '</h3>' +
+                                '<div class="number countTo" data-from="0" data-to="' + dataEntry+ '">'+dataEntry+'</div>'+
+                            '</div>'+
+                        '</div>' +
+                    '</div>'
+                );
+
+        };
+
+
+        return result;
+    }
+
+    temp.initialize = function(){
+
+        var pLocation = this.pageLocation;
+        document.addEventListener("consumptiontypeChanged", function (e) {
+              var activate = window.consumptiontypes.indexOf(window.activeConsumption);
+              if(activate == 1) activate = 2;
+              else if(activate == 2) activate = 1;
+              $('.'+pLocation).find('.summerized-panel-template').removeClass('active');
+              $('.'+pLocation).find('.summerized-panel-template').eq(activate).addClass('active');
+        }, false);
+
+    }
+    customAddTemplate(temp);
+});
+</script>

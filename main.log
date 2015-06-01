@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 01:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 02:43
 entering extended mode
 **main.tex
 (C:\Users\EmilSebastian\git\bachelor-repport\main.tex
@@ -447,7 +447,7 @@ Chapter 2.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/Background.tex [3
 
 ]
-[4] [5]) [6]
+[4]) [5] [6]
 Chapter 3.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/Requirements.tex [7
 
@@ -461,11 +461,11 @@ File: images/usecases.jpg Graphic file (type jpg)
 
 <use images/usecases.jpg>
 Package pdftex.def Info: images/usecases.jpg used on input line 34.
-(pdftex.def)             Requested size: 118.4404pt x 132.49265pt.
-) [10 <C:/Users/EmilSebastian/git/bachelor-repport/images/usecases.jpg>]
+(pdftex.def)             Requested size: 355.33023pt x 397.48807pt.
+) [10] [11 <C:/Users/EmilSebastian/git/bachelor-repport/images/usecases.jpg>]
 Chapter 4.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex
-<images/stldecomposition.jpg, id=73, 962.59625pt x 577.15625pt>
+<images/stldecomposition.jpg, id=76, 962.59625pt x 577.15625pt>
 File: images/stldecomposition.jpg Graphic file (type jpg)
 
 <use images/stldecomposition.jpg>
@@ -476,10 +476,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--15
 
  []
 
-[11
+[12
 
-] [12 <C:/Users/EmilSebastian/git/bachelor-repport/images/stldecomposition.jpg>
-] <images/cluster.png, id=81, 465.23813pt x 206.27063pt>
+] [13 <C:/Users/EmilSebastian/git/bachelor-repport/images/stldecomposition.jpg>
+] <images/cluster.png, id=84, 465.23813pt x 206.27063pt>
 File: images/cluster.png Graphic file (type png)
 
 <use images/cluster.png>
@@ -490,7 +490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--29
 
  []
 
-[13 <C:/Users/EmilSebastian/git/bachelor-repport/images/cluster.png>]
+[14 <C:/Users/EmilSebastian/git/bachelor-repport/images/cluster.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
  []
@@ -505,50 +505,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--45
 
  []
 
-[14] <images/outlier.png, id=90, 472.76625pt x 135.50626pt>
+[15] <images/outlier.png, id=93, 472.76625pt x 135.50626pt>
 File: images/outlier.png Graphic file (type png)
 
 <use images/outlier.png>
 Package pdftex.def Info: images/outlier.png used on input line 48.
 (pdftex.def)             Requested size: 354.5738pt x 101.62943pt.
-) [15 <C:/Users/EmilSebastian/git/bachelor-repport/images/outlier.png>]
+) [16 <C:/Users/EmilSebastian/git/bachelor-repport/images/outlier.png>]
 Chapter 5.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/designAimplement.tex
-<images/process.png, id=95, 434.37282pt x 232.61906pt>
+<images/process.png, id=98, 434.37282pt x 232.61906pt>
 File: images/process.png Graphic file (type png)
 
 <use images/process.png>
 Package pdftex.def Info: images/process.png used on input line 4.
 (pdftex.def)             Requested size: 173.74605pt x 93.04596pt.
 
-<images/DeploymentDiagramv3.png, id=96, 772.8875pt x 933.4875pt>
+<images/DeploymentDiagramv3.png, id=99, 772.8875pt x 933.4875pt>
 File: images/DeploymentDiagramv3.png Graphic file (type png)
 
 <use images/DeploymentDiagramv3.png>
 Package pdftex.def Info: images/DeploymentDiagramv3.png used on input line 14.
 (pdftex.def)             Requested size: 208.6824pt x 252.045pt.
- [16
+ [17
 
- <C:/Users/EmilSebastian/git/bachelor-repport/images/process.png>] [17 <C:/User
+ <C:/Users/EmilSebastian/git/bachelor-repport/images/process.png>] [18 <C:/User
 s/EmilSebastian/git/bachelor-repport/images/DeploymentDiagramv3.png (PNG copy)>
-] [18] [19]
-<images/Buildingsdbnew.jpg, id=111, 1455.4375pt x 833.1125pt>
+] [19] [20]
+<images/Buildingsdbnew.jpg, id=114, 1455.4375pt x 833.1125pt>
 File: images/Buildingsdbnew.jpg Graphic file (type jpg)
 
 <use images/Buildingsdbnew.jpg>
 Package pdftex.def Info: images/Buildingsdbnew.jpg used on input line 55.
 (pdftex.def)             Requested size: 407.51973pt x 233.26991pt.
- [20]
-<images/WebSitesidedb.png, id=115, 1465.475pt x 1134.2375pt>
+ [21]
+<images/WebSitesidedb.png, id=118, 1465.475pt x 1134.2375pt>
 File: images/WebSitesidedb.png Graphic file (type png)
 
 <use images/WebSitesidedb.png>
 Package pdftex.def Info: images/WebSitesidedb.png used on input line 68.
 (pdftex.def)             Requested size: 381.01451pt x 294.89479pt.
- [21 <C:/Users/EmilSebastian/git/bachelor-repport/images/Buildingsdbnew.jpg>] [
-22 <C:/Users/EmilSebastian/git/bachelor-repport/images/WebSitesidedb.png (PNG c
+ [22 <C:/Users/EmilSebastian/git/bachelor-repport/images/Buildingsdbnew.jpg>] [
+23 <C:/Users/EmilSebastian/git/bachelor-repport/images/WebSitesidedb.png (PNG c
 opy)>]
-<images/illustrationofvector.png, id=122, 781.41937pt x 124.96687pt>
+<images/illustrationofvector.png, id=125, 781.41937pt x 124.96687pt>
 File: images/illustrationofvector.png Graphic file (type png)
 
 <use images/illustrationofvector.png>
@@ -560,25 +560,25 @@ Overfull \hbox (36.00644pt too wide) in paragraph at lines 86--107
  [] 
  []
 
-[23 <C:/Users/EmilSebastian/git/bachelor-repport/images/illustrationofvector.pn
-g>] [24] [25]
-<images/buildingsimmilarity.png, id=135, 619.56468pt x 142.28156pt>
+[24 <C:/Users/EmilSebastian/git/bachelor-repport/images/illustrationofvector.pn
+g>] [25] [26]
+<images/buildingsimmilarity.png, id=138, 619.56468pt x 142.28156pt>
 File: images/buildingsimmilarity.png Graphic file (type png)
 
 <use images/buildingsimmilarity.png>
 Package pdftex.def Info: images/buildingsimmilarity.png used on input line 141.
 
 (pdftex.def)             Requested size: 309.78157pt x 71.1406pt.
- [26]
-<images/normalDist.PNG, id=139, 385.44pt x 176.15813pt>
+ [27]
+<images/normalDist.PNG, id=142, 385.44pt x 176.15813pt>
 File: images/normalDist.PNG Graphic file (type png)
 
 <use images/normalDist.PNG>
 Package pdftex.def Info: images/normalDist.PNG used on input line 161.
 (pdftex.def)             Requested size: 192.71953pt x 88.07884pt.
- [27 <C:/Users/EmilSebastian/git/bachelor-repport/images/buildingsimmilarity.pn
+ [28 <C:/Users/EmilSebastian/git/bachelor-repport/images/buildingsimmilarity.pn
 g>]
-<images/histogramnormaldists.png, id=145, 454.69875pt x 429.605pt>
+<images/histogramnormaldists.png, id=148, 454.69875pt x 429.605pt>
 File: images/histogramnormaldists.png Graphic file (type png)
 
 <use images/histogramnormaldists.png>
@@ -590,25 +590,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
-[28 <C:/Users/EmilSebastian/git/bachelor-repport/images/normalDist.PNG>]
-[29 <C:/Users/EmilSebastian/git/bachelor-repport/images/histogramnormaldists.pn
-g>] <images/FlowDiabramWebSite.jpg, id=154, 341.275pt x 371.3875pt>
+[29 <C:/Users/EmilSebastian/git/bachelor-repport/images/normalDist.PNG>]
+[30 <C:/Users/EmilSebastian/git/bachelor-repport/images/histogramnormaldists.pn
+g>] <images/FlowDiabramWebSite.jpg, id=158, 341.275pt x 371.3875pt>
 File: images/FlowDiabramWebSite.jpg Graphic file (type jpg)
 
 <use images/FlowDiabramWebSite.jpg>
 Package pdftex.def Info: images/FlowDiabramWebSite.jpg used on input line 207.
 (pdftex.def)             Requested size: 102.38329pt x 111.4171pt.
- [30]
-<images/W_template_eksample.jpg, id=159, 682.55pt x 321.2pt>
+ [31]
+<images/W_template_eksample.jpg, id=162, 682.55pt x 321.2pt>
 File: images/W_template_eksample.jpg Graphic file (type jpg)
 
 <use images/W_template_eksample.jpg>
 Package pdftex.def Info: images/W_template_eksample.jpg used on input line 220.
 
 (pdftex.def)             Requested size: 204.76657pt x 96.36073pt.
- [31 <C:/Users/EmilSebastian/git/bachelor-repport/images/FlowDiabramWebSite.jpg
+ [32 <C:/Users/EmilSebastian/git/bachelor-repport/images/FlowDiabramWebSite.jpg
 >]
-<images/codesnippet.png, id=163, 409.53pt x 100.87688pt>
+<images/codesnippet.png, id=166, 409.53pt x 100.87688pt>
 File: images/codesnippet.png Graphic file (type png)
 
 <use images/codesnippet.png>
@@ -619,29 +619,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--241
 
  []
 
-[32 <C:/Users/EmilSebastian/git/bachelor-repport/images/W_template_eksample.jpg
+[33 <C:/Users/EmilSebastian/git/bachelor-repport/images/W_template_eksample.jpg
 > <C:/Users/EmilSebastian/git/bachelor-repport/images/codesnippet.png>])
-[33]
+[34]
 Chapter 6.
 (C:\Users\EmilSebastian\git\bachelor-repport\chapters/testandevaluation).tex
-[34
+[35
 
-] <images/outliereksempel.png, id=174, 678.28406pt x 315.42844pt>
+] <images/outliereksempel.png, id=177, 678.28406pt x 315.42844pt>
 File: images/outliereksempel.png Graphic file (type png)
 
 <use images/outliereksempel.png>
 Package pdftex.def Info: images/outliereksempel.png used on input line 31.
 (pdftex.def)             Requested size: 203.48679pt x 94.62926pt.
 
-<images/comparingtwodaysclusterplot.png, id=175, 1096.84781pt x 372.64218pt>
+<images/comparingtwodaysclusterplot.png, id=178, 1096.84781pt x 372.64218pt>
 File: images/comparingtwodaysclusterplot.png Graphic file (type png)
 
 <use images/comparingtwodaysclusterplot.png>
 Package pdftex.def Info: images/comparingtwodaysclusterplot.png used on input l
 ine 41.
 (pdftex.def)             Requested size: 329.05688pt x 111.7935pt.
- [35 <C:/Users/EmilSebastian/git/bachelor-repport/images/outliereksempel.png>]
-<images/anomaliesvsbuildings1.png, id=180, 372.64218pt x 297.36093pt>
+ [36 <C:/Users/EmilSebastian/git/bachelor-repport/images/outliereksempel.png>]
+<images/anomaliesvsbuildings1.png, id=184, 372.64218pt x 297.36093pt>
 File: images/anomaliesvsbuildings1.png Graphic file (type png)
 
 <use images/anomaliesvsbuildings1.png>
@@ -649,7 +649,7 @@ Package pdftex.def Info: images/anomaliesvsbuildings1.png used on input line 54
 .
 (pdftex.def)             Requested size: 111.7935pt x 89.20895pt.
 
-<images/nightconsumption6028.png, id=181, 588.69937pt x 243.15843pt>
+<images/nightconsumption6028.png, id=185, 588.69937pt x 243.15843pt>
 File: images/nightconsumption6028.png Graphic file (type png)
 
 <use images/nightconsumption6028.png>
@@ -657,18 +657,18 @@ Package pdftex.def Info: images/nightconsumption6028.png used on input line 62.
 
 (pdftex.def)             Requested size: 235.47557pt x 97.26164pt.
 
-<images/anomalyvsincrease.png, id=182, 447.17062pt x 276.28218pt>
+<images/anomalyvsincrease.png, id=186, 447.17062pt x 276.28218pt>
 File: images/anomalyvsincrease.png Graphic file (type png)
 
 <use images/anomalyvsincrease.png>
 Package pdftex.def Info: images/anomalyvsincrease.png used on input line 70.
 (pdftex.def)             Requested size: 134.15222pt x 82.88528pt.
- [36 <C:/Users/EmilSebastian/git/bachelor-repport/images/comparingtwodayscluste
-rplot.png>] [37 <C:/Users/EmilSebastian/git/bachelor-repport/images/anomaliesvs
+ [37 <C:/Users/EmilSebastian/git/bachelor-repport/images/comparingtwodayscluste
+rplot.png>] [38 <C:/Users/EmilSebastian/git/bachelor-repport/images/anomaliesvs
 buildings1.png> <C:/Users/EmilSebastian/git/bachelor-repport/images/nightconsum
 ption6028.png> <C:/Users/EmilSebastian/git/bachelor-repport/images/anomalyvsinc
 rease.png>]
-<images/electricity_building_2277.jpg, id=193, 730.98094pt x 361.35pt>
+<images/electricity_building_2277.jpg, id=196, 730.98094pt x 361.35pt>
 File: images/electricity_building_2277.jpg Graphic file (type jpg)
 
 <use images/electricity_building_2277.jpg>
@@ -676,27 +676,27 @@ Package pdftex.def Info: images/electricity_building_2277.jpg used on input lin
 e 81.
 (pdftex.def)             Requested size: 219.29597pt x 108.40584pt.
 
-<images/plotsimmilarity2.png, id=194, 639.89063pt x 320.69812pt>
+<images/plotsimmilarity2.png, id=197, 639.89063pt x 320.69812pt>
 File: images/plotsimmilarity2.png Graphic file (type png)
 
 <use images/plotsimmilarity2.png>
 Package pdftex.def Info: images/plotsimmilarity2.png used on input line 89.
 (pdftex.def)             Requested size: 191.96866pt x 96.21017pt.
- [38 <C:/Users/EmilSebastian/git/bachelor-repport/images/electricity_building_2
-277.jpg>] [39 <C:/Users/EmilSebastian/git/bachelor-repport/images/plotsimmilari
-ty2.png>] [40] [41]
+ [39 <C:/Users/EmilSebastian/git/bachelor-repport/images/electricity_building_2
+277.jpg>] [40 <C:/Users/EmilSebastian/git/bachelor-repport/images/plotsimmilari
+ty2.png>] [41] [42]
 Overfull \hbox (0.39027pt too wide) in paragraph at lines 137--138
  \OT1/cmr/bx/n/10 Com-par-ing build-ings[] \OT1/cmr/m/n/10 Re-gard-ing the page
  for com-par-ing mul-ti-ple con-sump-tion the test showed
  []
 
-[42]) [43]
+[43]) [44]
 Chapter 7.
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/conclusion.tex [44
+(C:\Users\EmilSebastian\git\bachelor-repport\chapters/conclusion.tex [45
 
 ]
-[45]) (C:\Users\EmilSebastian\git\bachelor-repport\literature.tex [46])
-[47
+[46]) (C:\Users\EmilSebastian\git\bachelor-repport\literature.tex [47])
+[48
 
 ] (C:\Users\EmilSebastian\git\bachelor-repport\main.aux) ) 
 Here is how much of TeX's memory you used:
@@ -706,7 +706,7 @@ Here is how much of TeX's memory you used:
  4920 multiletter control sequences out of 15000+200000
  9752 words of font info for 34 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,11n,43p,1641b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,43p,1642b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Latex1/fonts/type
 1/public/amsfonts/cm/cmbx10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Latex1/fonts/typ
@@ -720,9 +720,9 @@ ic/amsfonts/cm/cmr7.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/
 Latex1/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Latex1/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/La
 tex1/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (54 pages, 1738112 bytes).
+Output written on main.pdf (55 pages, 1737179 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
+ 289 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

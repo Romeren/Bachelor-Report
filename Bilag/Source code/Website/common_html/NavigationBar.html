@@ -1,0 +1,68 @@
+<!-- NAV BAR-->
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navHome" href="#">Odense Energi</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="navBar">
+                <li class="navHome active">
+                    <a href="#Home"><span class="icon-home"></span> Buildings</a>
+                </li>
+                <li class="navAlarms">
+                    <a href="#Alarms"><span class="icon-bell"></span> Alarms</a>
+                </li>
+                <li class="navCompare">
+                    <a href="#Compare"><span class="icon-tab"></span> Compare</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right"></ul>
+        </div>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    $('.navHome').click(function () {
+        $('#navBar li').removeClass('active');
+        $('.navHome').addClass('actvie');
+        $('#PageContent').load('pages/HomePage.html');
+    });
+    $('.navAlarms').click(function () {
+        $('#navBar li').removeClass('active');
+        $('.navAlarms').addClass('actvie');
+        $('#PageContent').load('pages/Alarms.html');
+    });
+    $('.navCompare').click(function () {
+        $('#navBar li').removeClass('active');
+        $('.navCompare').addClass('actvie');
+        $('#PageContent').load('pages/Compare.html');
+    });
+
+    signedOut = function() {
+        $('.navbar-right').html(
+        '<li> <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Log-in</a> </li> ' +
+        '<li> <a href="#signupModal" data-toggle="modal" data-target="#signupModal">Sign up</a> </li>'
+        );
+    };
+
+    signedIn = function() {
+        $('.navbar-right').html(
+                '<li> <a href="#" id="logout_btn">Log-out</a> </li>'
+        );
+        $('#logout_btn').click(function () {
+            window.app.signOut();
+            //$('#PageContent').load('pages/HomePage.html');
+        });
+    };
+
+    $(signedOut)
+    document.addEventListener("signedIn", signedIn);
+    document.addEventListener("signedOut", signedOut);
+</script>

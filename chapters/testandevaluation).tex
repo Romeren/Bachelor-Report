@@ -43,9 +43,9 @@ Often the best way to determine whatever a clustering is successful is by visual
 \caption{Two distinct day types and a cluster plot of the two day types}
 \end{figure}
 
-Appendix XX contains 925 plots showing each of the day type profiles generated while running the test with setting number 5.
+Appendix 11 -Daytype test setting contains 925 plots showing each of the day type profiles generated while running the test with setting number 5.
 
-The clustering was tried with the DBSCAN algorithm\footnote{See Related work and Methods}. However, this did not perform very well as it would often just create one single cluster. Figure xx, gives a hint as to why this is the case. Even though the two clusters shown to the left seem clearly distinct, the cluster plot to the right shows that they have overlap. If this overlap is too dense, then due to the way DBSCAN works they will come out as one single cluster.
+The clustering was tried with the DBSCAN algorithm\footnote{See Related work and Methods}. However, this did not perform very well as it would often just create one single cluster. Figure 6.3 right, gives a hint as to why this is the case. Even though the two clusters shown to the left seem clearly distinct, the cluster plot to the right shows that they have overlap. If this overlap is too dense, then due to the way DBSCAN works they will come out as one single cluster.
 
 \section*{Detection of faults}
 Based on the day type profiles generated on the training data, the test data was checked for anomalies. The fault detection settings used was an alpha value of 0.05 and the features used for the fault detection were mean hourly consumption and nightly consumption. During the process buildings that did not have any consumption profiles, (due to missing) or days with missing data were discarded. The result was that 391 buildings were processed and in total 2435 days were checked for anomalies. In total 76 anomalies were detected of which 36 had to with a higher than usual consumption. Figure 6.4 shows the detected anomalies across buildings.
@@ -73,9 +73,9 @@ Another way that the fault detection system was tested was to simulate a higher 
 \end{figure}
 The figure shows that for instance increasing the consumption 20\% would be detected for roughly 20\% of all days. However the system will probably perform better on real data, because the increase would not be spread evenly across the entire day like the simulated increase.
 \section*{Finding similar buildings}
-This feature is somewhat difficult to evaluate since there is no clear metric for how similar two buildings in fact are. The approach will be to compare all buildings using the day type profiles generated in section daytype clustering, on page 40. These profiles have been generated on basis on the training data, and thus the system will find similar buildings on basis of the training data. How well the system performs in finding similar buildings will be evaluated using the test data.
+This feature is somewhat difficult to evaluate since there is no clear metric for how similar two buildings in fact are. The approach will be to compare all buildings using the day type profiles generated in section daytype clustering, on page 35. These profiles have been generated on basis on the training data, and thus the system will find similar buildings on basis of the training data. How well the system performs in finding similar buildings will be evaluated using the test data.
 
-Using the training data the system compared all buildings and for each building the 30 most similar were noted. Figure 6.7 shows the raw electricity consumption of two different buildings during March 2015 which was not part the training data. The black lines show the consumption of each building, and the red lines show the consumption of the 5 buildings that were rated as most similar. We see from the plots that the system did well finding similar buildings. Appendix XX contains a plot for each building that was used.
+Using the training data the system compared all buildings and for each building the 30 most similar were noted. Figure 6.7 shows the raw electricity consumption of two different buildings during March 2015 which was not part the training data. The black lines show the consumption of each building, and the red lines show the consumption of the 5 buildings that were rated as most similar. We see from the plots that the system did well finding similar buildings. Appendix 12 -Similar Buildings contains a plot for each building that was used.
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.3]{electricity_building_2277.jpg}
