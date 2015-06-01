@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 04:46
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 04:51
->>>>>>> origin/startup
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.1.26)  1 JUN 2015 06:01
 entering extended mode
 **main.tex
 (C:\bachelor\Bachelor-Report\main.tex
@@ -468,13 +464,8 @@ Package pdftex.def Info: images/usecases.jpg used on input line 34.
 (pdftex.def)             Requested size: 355.33023pt x 397.48807pt.
 ) [10] [11 <C:/bachelor/Bachelor-Report/images/usecases.jpg>]
 Chapter 4.
-<<<<<<< HEAD
 (C:\bachelor\Bachelor-Report\chapters/RelatedWork.tex
-<images/stldecomposition.jpg, id=76, 962.59625pt x 577.15625pt>
-=======
-(C:\Users\EmilSebastian\git\bachelor-repport\chapters/RelatedWork.tex
 <images/stldecomposition.jpg, id=76, 502.87875pt x 301.8778pt>
->>>>>>> origin/startup
 File: images/stldecomposition.jpg Graphic file (type jpg)
 
 <use images/stldecomposition.jpg>
@@ -499,11 +490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--29
 
  []
 
-<<<<<<< HEAD
 [14 <C:/bachelor/Bachelor-Report/images/cluster.png>]
-=======
-[14 <C:/Users/EmilSebastian/git/bachelor-repport/images/cluster.png>]
->>>>>>> origin/startup
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
@@ -518,13 +505,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
-<images/outlier.png, id=89, 472.76625pt x 135.50626pt>
+[15] <images/outlier.png, id=93, 472.76625pt x 135.50626pt>
 File: images/outlier.png Graphic file (type png)
 
 <use images/outlier.png>
-Package pdftex.def Info: images/outlier.png used on input line 47.
+Package pdftex.def Info: images/outlier.png used on input line 48.
 (pdftex.def)             Requested size: 354.5738pt x 101.62943pt.
-) [15] [16 <C:/bachelor/Bachelor-Report/images/outlier.png>]
+) [16 <C:/bachelor/Bachelor-Report/images/outlier.png>]
 Chapter 5.
 (C:\bachelor\Bachelor-Report\chapters/designAimplement.tex
 <images/process.png, id=98, 434.37282pt x 232.61906pt>
@@ -571,14 +558,8 @@ Overfull \hbox (36.00644pt too wide) in paragraph at lines 86--107
  [] 
  []
 
-<<<<<<< HEAD
 [24 <C:/bachelor/Bachelor-Report/images/illustrationofvector.png>] [25]
-[26] <images/buildingsimmilarity.png, id=138, 619.56468pt x 142.28156pt>
-=======
-[24 <C:/Users/EmilSebastian/git/bachelor-repport/images/illustrationofvector.pn
-g>] [25] [26]
-<images/buildingsimmilarity.png, id=138, 619.56468pt x 128.73094pt>
->>>>>>> origin/startup
+[26] <images/buildingsimmilarity.png, id=138, 619.56468pt x 128.73094pt>
 File: images/buildingsimmilarity.png Graphic file (type png)
 
 <use images/buildingsimmilarity.png>
@@ -611,14 +592,14 @@ lor-Report/images/histogramnormaldists.png>]
 File: images/FlowDiabramWebSite.jpg Graphic file (type jpg)
 
 <use images/FlowDiabramWebSite.jpg>
-Package pdftex.def Info: images/FlowDiabramWebSite.jpg used on input line 207.
+Package pdftex.def Info: images/FlowDiabramWebSite.jpg used on input line 208.
 (pdftex.def)             Requested size: 102.38329pt x 111.4171pt.
  [31]
 <images/W_template_eksample.jpg, id=162, 682.55pt x 321.2pt>
 File: images/W_template_eksample.jpg Graphic file (type jpg)
 
 <use images/W_template_eksample.jpg>
-Package pdftex.def Info: images/W_template_eksample.jpg used on input line 220.
+Package pdftex.def Info: images/W_template_eksample.jpg used on input line 221.
 
 (pdftex.def)             Requested size: 204.76657pt x 96.36073pt.
  [32 <C:/bachelor/Bachelor-Report/images/FlowDiabramWebSite.jpg>]
@@ -626,15 +607,15 @@ Package pdftex.def Info: images/W_template_eksample.jpg used on input line 220.
 File: images/codesnippet.png Graphic file (type png)
 
 <use images/codesnippet.png>
-Package pdftex.def Info: images/codesnippet.png used on input line 232.
+Package pdftex.def Info: images/codesnippet.png used on input line 233.
 (pdftex.def)             Requested size: 348.10214pt x 85.74573pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--241
+Underfull \hbox (badness 10000) in paragraph at lines 230--242
 
  []
 
-) [33 <C:/bachelor/Bachelor-Report/images/W_template_eksample.jpg>] [34 <C:/bac
-helor/Bachelor-Report/images/codesnippet.png>]
+[33 <C:/bachelor/Bachelor-Report/images/W_template_eksample.jpg> <C:/bachelor/B
+achelor-Report/images/codesnippet.png>]) [34]
 Chapter 6.
 (C:\bachelor\Bachelor-Report\chapters/testandevaluation).tex [35
 
@@ -717,7 +698,6 @@ Here is how much of TeX's memory you used:
  4920 multiletter control sequences out of 15000+200000
  9752 words of font info for 34 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
-<<<<<<< HEAD
  27i,11n,43p,1647b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
@@ -736,24 +716,7 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (55 pages, 1777786 bytes).
-=======
- 27i,11n,43p,1647b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Latex1/fonts/type
-1/public/amsfonts/cm/cmbx10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Latex1/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmmi
-5.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Latex1/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr10.
-pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Latex1/fonts/type1/
-public/amsfonts/cm/cmr17.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr5.pfb
-><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Latex1/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/
-Latex1/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Latex1/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><D:/Latex1/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/La
-tex1/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (55 pages, 1742389 bytes).
->>>>>>> origin/startup
+Output written on main.pdf (55 pages, 1783230 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
