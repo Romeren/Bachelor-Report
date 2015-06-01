@@ -1,17 +1,17 @@
-\contentsline {chapter}{Abstract}{i}
-\contentsline {chapter}{Foreword}{ii}
-\contentsline {chapter}{Reading guid}{iv}
+\contentsline {chapter}{Abstract}{ii}
+\contentsline {chapter}{Foreword}{iii}
+\contentsline {chapter}{Reading guid}{v}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {chapter}{\numberline {2}Background}{3}
 \contentsline {section}{\numberline {2.1}Current limitations}{4}
 \contentsline {chapter}{\numberline {3}Requirements}{7}
 \contentsline {section}{\numberline {3.1}System and data maintenance}{7}
 \contentsline {section}{\numberline {3.2}Visualization of buildings and consumptions}{8}
-\contentsline {section}{\numberline {3.3}Fault detection, diagnosis and resolution}{8}
+\contentsline {section}{\numberline {3.3}Fault detection, diagnosis and resolution}{9}
 \contentsline {section}{\numberline {3.4}Budgeting}{9}
 \contentsline {section}{\numberline {3.5}Selecting buildings for renovation}{9}
 \contentsline {section}{\numberline {3.6}Other requirements}{9}
-\contentsline {section}{\numberline {3.7}Prioritization of requirements}{9}
+\contentsline {section}{\numberline {3.7}Prioritization of requirements}{10}
 \contentsline {section}{\numberline {3.8}Overall system description}{10}
 \contentsline {chapter}{\numberline {4}Related Work and Methods}{11}
 \contentsline {section}{\numberline {4.1}Decomposing time series}{11}
@@ -31,19 +31,19 @@
 \contentsline {section}{\numberline {5.7}Comparing buildings}{26}
 \contentsline {section}{\numberline {5.8}Detecting faults}{27}
 \contentsline {section}{\numberline {5.9}Design of the website}{29}
-\contentsline {section}{\numberline {5.10}Implementation of website}{30}
-\contentsline {chapter}{\numberline {6}Test and evaluation}{33}
-\contentsline {section}{\numberline {6.1}Technical evaluation}{33}
-\contentsline {section}{\numberline {6.2}Usability evaluation }{38}
-\contentsline {paragraph}{Comparing buildings:}{39}
-\contentsline {section}{\numberline {6.3}Utility and efficiency of the product}{40}
-\contentsline {paragraph}{Viewing a specific building}{40}
-\contentsline {paragraph}{Alarms}{41}
-\contentsline {paragraph}{Comparing buildings}{41}
-\contentsline {chapter}{\numberline {7}Conclusion}{43}
-\contentsline {section}{\numberline {7.1}System and data maintenance}{43}
-\contentsline {section}{\numberline {7.2}Visualization of buildings and consumptions}{43}
-\contentsline {section}{\numberline {7.3}Fault detection, diagnosis and resolution}{44}
-\contentsline {section}{\numberline {7.4}Budgeting}{44}
-\contentsline {section}{\numberline {7.5}Selecting buildings for renovation}{44}
-\contentsline {section}{\numberline {7.6}Project overall}{45}
+\contentsline {section}{\numberline {5.10}Implementation of website}{31}
+\contentsline {chapter}{\numberline {6}Test and evaluation}{34}
+\contentsline {section}{\numberline {6.1}Technical evaluation}{34}
+\contentsline {section}{\numberline {6.2}Usability evaluation }{39}
+\contentsline {paragraph}{Comparing buildings:}{40}
+\contentsline {section}{\numberline {6.3}Utility and efficiency of the product}{41}
+\contentsline {paragraph}{Viewing a specific building}{41}
+\contentsline {paragraph}{Alarms}{42}
+\contentsline {paragraph}{Comparing buildings}{42}
+\contentsline {chapter}{\numberline {7}Conclusion}{44}
+\contentsline {section}{\numberline {7.1}System and data maintenance}{44}
+\contentsline {section}{\numberline {7.2}Visualization of buildings and consumptions}{44}
+\contentsline {section}{\numberline {7.3}Fault detection, diagnosis and resolution}{45}
+\contentsline {section}{\numberline {7.4}Budgeting}{45}
+\contentsline {section}{\numberline {7.5}Selecting buildings for renovation}{45}
+\contentsline {section}{\numberline {7.6}Project overall}{46}
